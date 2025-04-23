@@ -1,0 +1,389 @@
+<!-- diet.html (or equivalent in your project) -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book Recommendations</title>
+    <link rel="stylesheet" href="/css/food-diet.css">
+</head>
+<body>
+    
+    <nav class="navbar">
+        <h2> <img src="/image/logo.webp" alt="Psychobuddy Logo">Psychobuddy</h2>
+        <div class="menu-toggle" onclick="toggleMenu()">☰</div>
+        <ul class="nav-links">
+            <li><a href="/selfcare"><i class="fas fa-heart"></i> Self Care</a></li>
+            <li><a href="/logout"><i class="fas fa-sign-out-alt"></i> Logout</a></li>
+        </ul>
+    </nav>
+    <div class="main-content">
+        <div class="container">
+            <h1>Book Recommendations for Mental Health</h1>
+            <p>Explore helpful book recommendations for various mental health conditions.</p>            
+            <input type="text" id="search-bar" placeholder="Search disorders...">
+
+            <section class="cards-container">
+                <!-- Each disorder card -->
+                <!-- Depression -->
+<div class="card">
+    <div class="card-header">
+      <img src="image/depression.jpg" alt="Depression Logo" class="disorder-logo">
+      <h3>Depression</h3>
+      <button class="dropdown-toggle">click here</button>
+    </div>
+    <div class="card-body">
+      <div class="dropdown-content">
+        <h4>Music Recommendations:</h4>
+        <ul>
+          <li><a href="https://www.youtube.com/watch?v=k4V3Mo61fJM" target="_blank"><strong>“Fix You”</strong> by Coldplay</a></li>
+          <li><a href="https://www.youtube.com/watch?v=V1Pl8CzNzCw" target="_blank"><strong>“Lovely”</strong> by Billie Eilish & Khalid</a></li>
+          <li><a href="https://www.youtube.com/watch?v=UfcAVejslrU" target="_blank"><strong>“Weightless”</strong> by Marconi Union</a></li>
+          <li><a href="https://www.youtube.com/watch?v=lwgr_IMeEgA" target="_blank"><strong>“Rise Up”</strong> by Andra Day</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  
+  <!-- Anxiety -->
+  <div class="card">
+    <div class="card-header">
+      <img src="image/anxiety.jpg" alt="Anxiety Logo" class="disorder-logo">
+      <h3>Anxiety</h3>
+      <button class="dropdown-toggle">click here</button>
+    </div>
+    <div class="card-body">
+      <div class="dropdown-content">
+        <h4>Music Recommendations:</h4>
+        <ul>
+          <li><a href="https://www.youtube.com/watch?v=1RW3nDRmu6k" target="_blank"><strong>“Breathe Me”</strong> by Sia</a></li>
+          <li><a href="https://www.youtube.com/watch?v=QDYfEBY9NM4" target="_blank"><strong>“Let It Be”</strong> by The Beatles</a></li>
+          <li><a href="https://www.youtube.com/watch?v=UfcAVejslrU" target="_blank"><strong>“Weightless”</strong> by Marconi Union</a></li>
+          <li><a href="https://www.youtube.com/watch?v=V1bFr2SWP1I" target="_blank"><strong>“Somewhere Over the Rainbow”</strong> by Israel Kamakawiwoʻole</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  
+  <!-- PTSD -->
+  <div class="card">
+    <div class="card-header">
+      <img src="image/ptsd.jpg" alt="PTSD Logo" class="disorder-logo">
+      <h3>PTSD</h3>
+      <button class="dropdown-toggle">click here</button>
+    </div>
+    <div class="card-body">
+      <div class="dropdown-content">
+        <h4>Music Recommendations:</h4>
+        <ul>
+          <li><a href="https://www.youtube.com/watch?v=mWRsgZuwf_8" target="_blank"><strong>“Demons”</strong> by Imagine Dragons</a></li>
+          <li><a href="https://www.youtube.com/watch?v=LG_xDgFJ0FQ" target="_blank"><strong>“Keep Breathing”</strong> by Ingrid Michaelson</a></li>
+          <li><a href="https://www.youtube.com/watch?v=2EwViQxSJJQ" target="_blank"><strong>“Heal”</strong> by Tom Odell</a></li>
+          <li><a href="https://www.youtube.com/watch?v=VHS7R0n3ubM" target="_blank"><strong>“Saturn”</strong> by Sleeping at Last</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  
+  <!-- ADHD -->
+  <div class="card">
+    <div class="card-header">
+      <img src="image/adhd.jpg" alt="ADHD Logo" class="disorder-logo">
+      <h3>ADHD</h3>
+      <button class="dropdown-toggle">click here</button>
+    </div>
+    <div class="card-body">
+      <div class="dropdown-content">
+        <h4>Music Recommendations:</h4>
+        <ul>
+          <li><a href="https://www.youtube.com/watch?v=MWJZ0xaPCVU" target="_blank"><strong>Lo-fi Beats Playlist</strong> – Chillhop Music</a></li>
+          <li><a href="https://www.youtube.com/watch?v=wGzNZUUC8fM" target="_blank"><strong>“Sunset Lover”</strong> by Petit Biscuit</a></li>
+          <li><a href="https://www.brain.fm/" target="_blank"><strong>Brain.fm</strong> – Focus-enhancing Music for ADHD</a></li>
+          <li><a href="https://www.youtube.com/watch?v=UfcAVejslrU" target="_blank"><strong>“Weightless”</strong> by Marconi Union</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  
+              <!-- OCD -->
+<div class="card">
+    <div class="card-header">
+      <img src="image/ocd.jpg" alt="OCD Logo" class="disorder-logo">
+      <h3>OCD</h3>
+      <button class="dropdown-toggle">click here</button>
+    </div>
+    <div class="card-body">
+      <div class="dropdown-content">
+        <h4>Music Recommendations:</h4>
+        <ul>
+          <li><a href="https://www.youtube.com/watch?v=hlWiI4xVXKY" target="_blank">Deep Focus Music – relaxdaily</a></li>
+          <li><a href="https://www.youtube.com/watch?v=QmX9fryvRyg" target="_blank">Lo-Fi Focus Beats</a></li>
+          <li><a href="https://www.youtube.com/watch?v=RgKAFK5djSk" target="_blank">See You Again – Wiz Khalifa</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+            <!-- Bipolar Disorder -->
+<div class="card">
+    <div class="card-header">
+      <img src="image/bipolar.jpg" alt="Bipolar Disorder Logo" class="disorder-logo">
+      <h3>Bipolar Disorder</h3>
+      <button class="dropdown-toggle">click here</button>
+    </div>
+    <div class="card-body">
+      <div class="dropdown-content">
+        <h4>Music Recommendations:</h4>
+        <ul>
+          <li><a href="https://www.youtube.com/watch?v=jCya1yiFFP4" target="_blank">Let It Be – The Beatles</a></li>
+          <li><a href="https://www.youtube.com/watch?v=yknN0eKqe5U" target="_blank">Here Comes the Sun – The Beatles</a></li>
+          <li><a href="https://www.youtube.com/watch?v=lFcSrYw-ARY" target="_blank">Soft Piano Background – RelaxingRecords</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+                
+               <!-- Eating Disorders -->
+<div class="card">
+    <div class="card-header">
+      <img src="image/eating-disorder.jpg" alt="Eating Disorders Logo" class="disorder-logo">
+      <h3>Eating Disorders</h3>
+      <button class="dropdown-toggle">click here</button>
+    </div>
+    <div class="card-body">
+      <div class="dropdown-content">
+        <h4>Music Recommendations:</h4>
+        <ul>
+          <li><a href="https://www.youtube.com/watch?v=1SiylvmFI_8" target="_blank">Fight Song – Rachel Platten</a></li>
+          <li><a href="https://www.youtube.com/watch?v=LCH1AsUydSc" target="_blank">Scars To Your Beautiful – Alessia Cara</a></li>
+          <li><a href="https://www.youtube.com/watch?v=0put0_a--Ng" target="_blank">Who You Are – Jessie J</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  
+                
+                <!-- Continue similar changes for other disorders -->
+<!-- Schizophrenia -->
+<div class="card">
+    <div class="card-header">
+      <img src="image/schizophrenia.jpg" alt="Schizophrenia Logo" class="disorder-logo">
+      <h3>Schizophrenia</h3>
+      <button class="dropdown-toggle">click here</button>
+    </div>
+    <div class="card-body">
+      <div class="dropdown-content">
+        <h4>Music Recommendations:</h4>
+        <ul>
+          <li><a href="https://www.youtube.com/watch?v=UfcAVejslrU" target="_blank">Weightless – Marconi Union</a></li>
+          <li><a href="https://www.youtube.com/watch?v=TJ6Mzvh3XCc" target="_blank">Spiegel im Spiegel – Arvo Pärt</a></li>
+          <li><a href="https://www.youtube.com/watch?v=2OEL4P1Rz04" target="_blank">Pure Ambient Mix (Instrumental)</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  
+  <!-- Stress -->
+  <div class="card">
+    <div class="card-header">
+      <img src="image/stress.jpg" alt="Stress Logo" class="disorder-logo">
+      <h3>Stress</h3>
+      <button class="dropdown-toggle">click here</button>
+    </div>
+    <div class="card-body">
+      <div class="dropdown-content">
+        <h4>Music Recommendations:</h4>
+        <ul>
+          <li><a href="https://www.youtube.com/watch?v=UfcAVejslrU" target="_blank">Weightless – Marconi Union</a></li>
+          <li><a href="https://www.youtube.com/watch?v=CvFH_6DNRCY" target="_blank">Clair de Lune – Debussy</a></li>
+          <li><a href="https://www.youtube.com/watch?v=F7bKe_Zgk4o" target="_blank">Breathe – Télépopmusik</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  
+  <!-- Panic Disorder -->
+  <div class="card">
+    <div class="card-header">
+      <img src="image/panic.jpg" alt="Panic Disorder Logo" class="disorder-logo">
+      <h3>Panic Disorder</h3>
+      <button class="dropdown-toggle">click here</button>
+    </div>
+    <div class="card-body">
+      <div class="dropdown-content">
+        <h4>Music Recommendations:</h4>
+        <ul>
+          <li><a href="https://www.youtube.com/watch?v=G5r5vCj6VqI" target="_blank">Bloom – ODESZA</a></li>
+          <li><a href="https://www.youtube.com/watch?v=RQWYwz6bEyQ" target="_blank">Morning Light – Hammock</a></li>
+          <li><a href="https://www.youtube.com/watch?v=hlWiI4xVXKY" target="_blank">Calm Piano Music – relaxdaily</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  
+  <!-- Phobias -->
+  <div class="card">
+    <div class="card-header">
+      <img src="image/phobias.jpg" alt="Phobias Logo" class="disorder-logo">
+      <h3>Phobias</h3>
+      <button class="dropdown-toggle">click here</button>
+    </div>
+    <div class="card-body">
+      <div class="dropdown-content">
+        <h4>Music Recommendations:</h4>
+        <ul>
+          <li><a href="https://www.youtube.com/watch?v=Vn5UeZEqkZM" target="_blank">Ambient Relaxation – Meditative Mind</a></li>
+          <li><a href="https://www.youtube.com/watch?v=UfcAVejslrU" target="_blank">Weightless – Marconi Union</a></li>
+          <li><a href="https://www.youtube.com/watch?v=91u_XKTSy7k" target="_blank">Mellomaniac – DJ Shah (Chill Out Mix)</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  
+  <!-- Addiction Recovery -->
+  <div class="card">
+    <div class="card-header">
+      <img src="image/addiction.jpg" alt="Addiction Logo" class="disorder-logo">
+      <h3>Addiction Recovery</h3>
+      <button class="dropdown-toggle">click here</button>
+    </div>
+    <div class="card-body">
+      <div class="dropdown-content">
+        <h4>Music Recommendations:</h4>
+        <ul>
+          <li><a href="https://www.youtube.com/watch?v=EJvLThk2xL4" target="_blank">A Better Place – Playing for Change</a></li>
+          <li><a href="https://www.youtube.com/watch?v=AY9blLYMKnM" target="_blank">Healing – Trevor Hall</a></li>
+          <li><a href="https://www.youtube.com/watch?v=lwgr_IMeEgA" target="_blank">Rise Up – Andra Day</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  
+
+<!-- Conduct Disorder -->
+<div class="card">
+    <div class="card-header">
+      <img src="image/conduct.jpg" alt="Conduct Disorder Logo" class="disorder-logo">
+      <h3>Conduct Disorder</h3>
+      <button class="dropdown-toggle">click here</button>
+    </div>
+    <div class="card-body">
+      <div class="dropdown-content">
+        <h4>Music Recommendations:</h4>
+        <ul>
+          <li><a href="https://www.youtube.com/watch?v=dx4Teh-nv3A" target="_blank">Lost in Thought – ODESZA</a></li>
+          <li><a href="https://www.youtube.com/watch?v=Rqqj9rMOikU" target="_blank">Inner Peace – Meditative Mind</a></li>
+          <li><a href="https://www.youtube.com/watch?v=OeHLHNKQCXA" target="_blank">Weightless – Marconi Union</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  
+  <!-- Dementia -->
+  <div class="card">
+    <div class="card-header">
+      <img src="image/Dementia.jpg" alt="Dementia Logo" class="disorder-logo">
+      <h3>Dementia</h3>
+      <button class="dropdown-toggle">click here</button>
+    </div>
+    <div class="card-body">
+      <div class="dropdown-content">
+        <h4>Music Recommendations:</h4>
+        <ul>
+          <li><a href="https://www.youtube.com/watch?v=9xBVD4xTXYg" target="_blank">Remember When – Alan Jackson</a></li>
+          <li><a href="https://www.youtube.com/watch?v=Z1DMU5U1nl8" target="_blank">Moon River – Audrey Hepburn</a></li>
+          <li><a href="https://www.youtube.com/watch?v=azDWFc2kG4U" target="_blank">Memory Lane – Soft Piano</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  
+  <!-- Epilepsy & Seizures -->
+  <div class="card">
+    <div class="card-header">
+      <img src="image/Epilepsy and seizures.jpg" alt="Epilepsy Logo" class="disorder-logo">
+      <h3>Epilepsy & Seizures</h3>
+      <button class="dropdown-toggle">click here</button>
+    </div>
+    <div class="card-body">
+      <div class="dropdown-content">
+        <h4>Music Recommendations:</h4>
+        <ul>
+          <li><a href="https://www.youtube.com/watch?v=I0jY8mnOjr0" target="_blank">Delta Waves – Sleep Music</a></li>
+          <li><a href="https://www.youtube.com/watch?v=YvP1s4dUtkc" target="_blank">Soft Healing Tones – Nu Meditation</a></li>
+          <li><a href="https://www.youtube.com/watch?v=lFcSrYw-ARY" target="_blank">Calming Music for Sleep – RelaxingRecords</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  
+  <!-- Intellectual Disability -->
+  <div class="card">
+    <div class="card-header">
+      <img src="image/intellectual disability.jpg" alt="Intellectual Disability Logo" class="disorder-logo">
+      <h3>Intellectual Disability</h3>
+      <button class="dropdown-toggle">click here</button>
+    </div>
+    <div class="card-body">
+      <div class="dropdown-content">
+        <h4>Music Recommendations:</h4>
+        <ul>
+          <li><a href="https://www.youtube.com/watch?v=5Dde5RMXG2U" target="_blank">Simple Joy – Positive Acoustic</a></li>
+          <li><a href="https://www.youtube.com/watch?v=ILWSp0m9G2U" target="_blank">Upbeat Uplifting Music</a></li>
+          <li><a href="https://www.youtube.com/watch?v=qnP4NRf8W78" target="_blank">Gentle Guitar for Focus</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  
+  <!-- Suicide & Self-Harm -->
+  <div class="card">
+    <div class="card-header">
+      <img src="image/Suicide and self-harm.jpg" alt="Suicide Prevention Logo" class="disorder-logo">
+      <h3>Suicide & Self-Harm</h3>
+      <button class="dropdown-toggle">click here</button>
+    </div>
+    <div class="card-body">
+      <div class="dropdown-content">
+        <h4>Music Recommendations:</h4>
+        <ul>
+          <li><a href="https://www.youtube.com/watch?v=lwgr_IMeEgA" target="_blank">Rise Up – Andra Day</a></li>
+          <li><a href="https://www.youtube.com/watch?v=ZBR2G-iI3-I" target="_blank">Fix You – Coldplay</a></li>
+          <li><a href="https://www.youtube.com/watch?v=Fzn9E6LAnGk" target="_blank">You Are Not Alone – Michael Jackson</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  
+
+            </section>
+        </div>
+    </div>
+
+    <script>
+        function toggleMenu() {
+            const navLinks = document.querySelector(".nav-links");
+            navLinks.classList.toggle("show");
+        }
+        document.querySelectorAll('.dropdown-toggle').forEach(button => {
+            button.addEventListener('click', () => {
+                const dropdownContent = button.closest('.card').querySelector('.dropdown-content');
+                dropdownContent.classList.toggle('show');
+                button.textContent = dropdownContent.classList.contains('show') ? 'close' : 'click here';
+            });
+        });
+        document.getElementById('search-bar').addEventListener('input', function(event) {
+            const searchTerm = event.target.value.toLowerCase();
+            const cards = document.querySelectorAll('.card');
+            
+            cards.forEach(card => {
+                const title = card.querySelector('h3').textContent.toLowerCase();
+                if (title.includes(searchTerm)) {
+                    card.style.display = '';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        });
+    </script>
+</body>
+</html>

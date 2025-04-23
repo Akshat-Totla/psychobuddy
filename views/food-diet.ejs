@@ -1,0 +1,387 @@
+<!-- diet.html (or equivalent in your project) -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Food & Diet Recommendations</title>
+    <link rel="stylesheet" href="/css/food-diet.css">
+</head>
+<body>
+    
+    <nav class="navbar">
+        <h2> <img src="/image/logo.webp" alt="Psychobuddy Logo">Psychobuddy</h2>
+        <div class="menu-toggle" onclick="toggleMenu()">☰</div>
+        <ul class="nav-links">
+           
+            <li><a href="/selfcare"><i class="fas fa-heart"></i> Self Care</a></li>
+            <li><a href="/logout"><i class="fas fa-sign-out-alt"></i> Logout</a></li>
+        </ul>
+    </nav>
+    <div class="main-content">
+        <div class="container">
+            <h1>Food & Diet Recommendations for Mental Health</h1>
+            <p>Explore the impact of diet on mental health conditions and discover food recommendations for different disorders.</p>            
+            <input type="text" id="search-bar" placeholder="Search disorders...">
+
+            <section class="cards-container">
+        <!-- Each disorder card -->
+        <div class="card">
+            <div class="card-header">
+                <img src="image/depression.jpg" alt="Logo" class="disorder-logo">
+                <h3>Depression</h3>
+                <button class="dropdown-toggle">click here</button>
+            </div>
+            <div class="card-body">
+                <div class="dropdown-content">
+                    <h4>Diet Recommendations:</h4>
+                    <ul>
+                        <li>Omega-3 fatty acids: Found in fish like salmon and sardines.</li>
+                        <li>Leafy greens: Rich in folate, which can boost mood.</li>
+                        <li>Whole grains: Stabilizes blood sugar levels.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="card-header">
+                <img src="image/adhd.jpeg" alt="ADHD Logo" class="disorder-logo">
+                <h3>ADHD</h3>
+                <button class="dropdown-toggle">click here</button>
+            </div>
+            <div class="card-body">
+                <div class="dropdown-content">
+                    <h4>Diet Recommendations:</h4>
+                    <ul>
+                        <li>Protein-rich foods: Eggs, nuts, and seeds to support focus.</li>
+                        <li>Omega-3 fatty acids: Found in fish and flaxseeds.</li>
+                        <li>Complex carbs: Whole grains and legumes to maintain energy levels.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="card-header">
+              <img src="image/anxiety.jpg" alt="Anxiety Logo" class="disorder-logo">
+              <h3>Anxiety</h3>
+              <button class="dropdown-toggle">click here</button>
+            </div>
+            <div class="card-body">
+              <div class="dropdown-content">
+                <h4>Diet Recommendations:</h4>
+                <ul>
+                  <li>Chamomile tea and herbal infusions to calm nerves.</li>
+                  <li>Magnesium-rich foods like spinach and almonds.</li>
+                  <li>Probiotic foods: Yogurt and fermented foods support gut-brain health.</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          
+          <!-- PTSD -->
+          <div class="card">
+            <div class="card-header">
+              <img src="image/ptsd.jpg" alt="PTSD Logo" class="disorder-logo">
+              <h3>PTSD</h3>
+              <button class="dropdown-toggle">click here</button>
+            </div>
+            <div class="card-body">
+              <div class="dropdown-content">
+                <h4>Diet Recommendations:</h4>
+                <ul>
+                  <li>Blueberries and green tea rich in antioxidants.</li>
+                  <li>Omega-3s from salmon or chia seeds reduce inflammation.</li>
+                  <li>Whole grains for sustained energy and mood.</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          
+          <!-- OCD -->
+          <div class="card">
+            <div class="card-header">
+              <img src="image/ocd.jpg" alt="OCD Logo" class="disorder-logo">
+              <h3>OCD</h3>
+              <button class="dropdown-toggle">click here</button>
+            </div>
+            <div class="card-body">
+              <div class="dropdown-content">
+                <h4>Diet Recommendations:</h4>
+                <ul>
+                  <li>Turkey and eggs for tryptophan to support serotonin.</li>
+                  <li>Fermented foods: Kimchi, kefir, sauerkraut.</li>
+                  <li>Limit artificial sweeteners and high-sugar snacks.</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          
+          <!-- Bipolar Disorder -->
+          <div class="card">
+            <div class="card-header">
+              <img src="image/bipolar.jpg" alt="Bipolar Logo" class="disorder-logo">
+              <h3>Bipolar Disorder</h3>
+              <button class="dropdown-toggle">click here</button>
+            </div>
+            <div class="card-body">
+              <div class="dropdown-content">
+                <h4>Diet Recommendations:</h4>
+                <ul>
+                  <li>Omega-3s: Sardines, flaxseed oil, walnuts.</li>
+                  <li>Magnesium sources like bananas and dark chocolate.</li>
+                  <li>Balanced complex carbs to avoid blood sugar swings.</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          
+          <!-- Eating Disorders -->
+          <div class="card">
+            <div class="card-header">
+              <img src="image/eating-disorder.jpg" alt="Eating Disorders Logo" class="disorder-logo">
+              <h3>Eating Disorders</h3>
+              <button class="dropdown-toggle">click here</button>
+            </div>
+            <div class="card-body">
+              <div class="dropdown-content">
+                <h4>Diet Recommendations:</h4>
+                <ul>
+                  <li>Nutrient-dense meals: Avocados, nuts, legumes.</li>
+                  <li>Iron-rich foods like spinach and red meat.</li>
+                  <li>Hydration with water and electrolytes is essential.</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        
+          <!-- Schizophrenia -->
+<div class="card">
+    <div class="card-header">
+      <img src="image/schizophrenia.jpg" alt="Schizophrenia Logo" class="disorder-logo">
+      <h3>Schizophrenia</h3>
+      <button class="dropdown-toggle">click here</button>
+    </div>
+    <div class="card-body">
+      <div class="dropdown-content">
+        <h4>Diet Recommendations:</h4>
+        <ul>
+          <li>Antioxidant-rich foods: Berries, spinach, kale.</li>
+          <li>Vitamin D: Mushrooms, fortified cereals.</li>
+          <li>Limit processed sugars and caffeine.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  
+  <!-- Stress -->
+  <div class="card">
+    <div class="card-header">
+      <img src="image/stress.jpg" alt="Stress Logo" class="disorder-logo">
+      <h3>Stress</h3>
+      <button class="dropdown-toggle">click here</button>
+    </div>
+    <div class="card-body">
+      <div class="dropdown-content">
+        <h4>Diet Recommendations:</h4>
+        <ul>
+          <li>Dark chocolate (in moderation) boosts mood.</li>
+          <li>Vitamin C: Citrus fruits, bell peppers.</li>
+          <li>Green leafy vegetables for magnesium.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  
+  <!-- Panic Disorder -->
+  <div class="card">
+    <div class="card-header">
+      <img src="image/panic.jpg" alt="Panic Disorder Logo" class="disorder-logo">
+      <h3>Panic Disorder</h3>
+      <button class="dropdown-toggle">click here</button>
+    </div>
+    <div class="card-body">
+      <div class="dropdown-content">
+        <h4>Diet Recommendations:</h4>
+        <ul>
+          <li>Slow-digesting carbs: Quinoa, brown rice.</li>
+          <li>Foods rich in B-vitamins: Leafy greens, eggs.</li>
+          <li>Chamomile and calming herbal teas.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  
+  <!-- Phobias -->
+  <div class="card">
+    <div class="card-header">
+      <img src="image/phobias.jpg" alt="Phobias Logo" class="disorder-logo">
+      <h3>Phobias</h3>
+      <button class="dropdown-toggle">click here</button>
+    </div>
+    <div class="card-body">
+      <div class="dropdown-content">
+        <h4>Diet Recommendations:</h4>
+        <ul>
+          <li>Lean proteins: Chicken, lentils, tofu.</li>
+          <li>Magnesium & zinc-rich foods for calming effects.</li>
+          <li>Limit alcohol and stimulants like coffee.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  
+  <!-- Addiction Recovery -->
+  <div class="card">
+    <div class="card-header">
+      <img src="image/addiction.jpg" alt="Addiction Logo" class="disorder-logo">
+      <h3>Addiction Recovery</h3>
+      <button class="dropdown-toggle">click here</button>
+    </div>
+    <div class="card-body">
+      <div class="dropdown-content">
+        <h4>Diet Recommendations:</h4>
+        <ul>
+          <li>Hydrating foods: Fruits with high water content (watermelon, cucumber).</li>
+          <li>Vitamin B-rich foods to support energy: Whole grains, eggs.</li>
+          <li>Protein: Helps rebuild strength and balance neurotransmitters.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+<!-- Conduct Disorder -->
+<div class="card">
+    <div class="card-header">
+      <img src="image/conduct.jpg" alt="Conduct Disorder Logo" class="disorder-logo">
+      <h3>Conduct Disorder</h3>
+      <button class="dropdown-toggle">click here</button>
+    </div>
+    <div class="card-body">
+      <div class="dropdown-content">
+        <h4>Diet Recommendations:</h4>
+        <ul>
+          <li>Iron and zinc: Beef, pumpkin seeds, lentils.</li>
+          <li>Balanced meals with lean protein and healthy fats.</li>
+          <li>Avoid artificial colors, preservatives, and processed food.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  
+  <!-- Dementia -->
+  <div class="card">
+    <div class="card-header">
+      <img src="image/Dementia.jpg" alt="Dementia Logo" class="disorder-logo">
+      <h3>Dementia</h3>
+      <button class="dropdown-toggle">click here</button>
+    </div>
+    <div class="card-body">
+      <div class="dropdown-content">
+        <h4>Diet Recommendations:</h4>
+        <ul>
+          <li>Leafy greens and berries for brain health.</li>
+          <li>Healthy fats: Olive oil, avocado.</li>
+          <li>Hydration and fiber for digestion and alertness.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  
+  <!-- Epilepsy and Seizures -->
+  <div class="card">
+    <div class="card-header">
+      <img src="image/Epilepsy and seizures.jpg" alt="Epilepsy Logo" class="disorder-logo">
+      <h3>Epilepsy & Seizures</h3>
+      <button class="dropdown-toggle">click here</button>
+    </div>
+    <div class="card-body">
+      <div class="dropdown-content">
+        <h4>Diet Recommendations:</h4>
+        <ul>
+          <li>Ketogenic diet: High-fat, low-carb (with doctor approval).</li>
+          <li>Vitamin B6: Bananas, chicken, tuna.</li>
+          <li>Avoid alcohol and artificial sweeteners.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  
+  <!-- Intellectual Disability -->
+  <div class="card">
+    <div class="card-header">
+      <img src="image/intellectual disability.jpg" alt="Intellectual Disability Logo" class="disorder-logo">
+      <h3>Intellectual Disability</h3>
+      <button class="dropdown-toggle">click here</button>
+    </div>
+    <div class="card-body">
+      <div class="dropdown-content">
+        <h4>Diet Recommendations:</h4>
+        <ul>
+          <li>Iron, folate & iodine-rich foods: Eggs, seafood, leafy greens.</li>
+          <li>High-protein meals: Beans, dairy, lean meat.</li>
+          <li>Encourage routine eating habits and hydration.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  
+  <!-- Suicide & Self-Harm -->
+  <div class="card">
+    <div class="card-header">
+      <img src="image/Suicide and self-harm.jpg" alt="Suicide Prevention Logo" class="disorder-logo">
+      <h3>Suicide & Self-Harm</h3>
+      <button class="dropdown-toggle">click here</button>
+    </div>
+    <div class="card-body">
+      <div class="dropdown-content">
+        <h4>Diet Recommendations:</h4>
+        <ul>
+          <li>Foods that support serotonin: Turkey, salmon, bananas.</li>
+          <li>Omega-3s and complex carbs for mood regulation.</li>
+          <li>Frequent small meals to avoid mood dips.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+    
+        <!-- Repeat for other disorders -->
+
+    </section>
+    
+            </div>
+        </div>
+
+    <script >
+        // scripts.js
+
+ function toggleMenu() {
+    const navLinks = document.querySelector(".nav-links");
+    navLinks.classList.toggle("show");
+}
+document.querySelectorAll('.dropdown-toggle').forEach(button => {
+    button.addEventListener('click', () => {
+        const dropdownContent = button.closest('.card').querySelector('.dropdown-content');
+        dropdownContent.classList.toggle('show');
+        button.textContent = dropdownContent.classList.contains('show') ? 'close' : 'click here';
+    });
+});
+document.getElementById('search-bar').addEventListener('input', function(event) {
+    const searchTerm = event.target.value.toLowerCase();
+    const cards = document.querySelectorAll('.card');  // Update the selector to '.card'
+    
+    cards.forEach(card => {
+        const title = card.querySelector('h3').textContent.toLowerCase(); // Select the <h3> element within each card
+        if (title.includes(searchTerm)) {
+            card.style.display = '';  // Show the card if it matches
+        } else {
+            card.style.display = 'none';  // Hide the card if it doesn't match
+        }
+    });
+});
+
+
+
+    </script>
+</body>
+</html>

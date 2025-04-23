@@ -1,0 +1,303 @@
+/* General Styles */
+body {
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(135deg, #d1f7c4, #b2ebf2, #a5d6a7);
+    text-align: center;
+    padding: 20px;
+}
+
+/* 🟢 Top Navigation Bar */
+.navbar {
+    width: 95%;
+    background: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(15px);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 30px;
+    border-radius: 12px;
+    margin-top: 20px;
+    position: fixed;
+    top: 10px;
+    z-index: 100;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease-in-out;
+}
+
+/* 🟢 Logo */
+.navbar h2 {
+    font-size: 24px;
+    font-weight: 700;
+    color: #222;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.navbar h2 img {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+}
+/* 🟢 Navigation Menu */
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+}
+
+.nav-links li {
+    display: inline-block;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: #333;
+    font-size: 18px;
+    font-weight: 500;
+    padding: 10px 15px;
+    border-radius: 8px;
+    transition: all 0.3s ease-in-out;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+/* 🟢 Hover & Active Effects */
+.nav-links a:hover,
+.nav-links a.active {
+    background: rgba(255, 255, 255, 0.3);
+    color: #ff4081;
+    transform: scale(1.05);
+}
+
+/* 🟢 Mobile Navigation - Hamburger Menu */
+.menu-toggle {
+    display: none;
+    font-size: 24px;
+    cursor: pointer;
+}
+
+.main-content {
+    flex: 1;
+    padding: 120px 20px 20px;
+    text-align: center;
+    margin-top: 50px;
+}
+
+
+/* Container */
+.container {
+
+    max-width: 600px;
+    margin: auto;
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+/* Journal Form */
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+input, textarea, select, button {
+    padding: 10px;
+    font-size: 16px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+
+button {
+    background: linear-gradient(135deg, #6bbf59, #52a58a);
+    color: white;
+    cursor: pointer;
+}
+
+button:hover {
+    background: linear-gradient(135deg, #5ca04b, #469a7a);
+}
+
+/* Entries */
+.entries {
+    margin-top: 20px;
+}
+
+.entry {
+    background: rgba(255, 255, 255, 0.9);
+    padding: 15px;
+    border-radius: 8px;
+    margin-bottom: 10px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Hidden Edit Form */
+.edit-form {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+    z-index: 1000;
+    width: 90%;
+    max-width: 400px;
+}
+
+.edit-form h2 {
+    margin-bottom: 15px;
+    color: #333;
+}
+
+.edit-form input,
+.edit-form textarea,
+.edit-form select {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+
+.edit-form button {
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 48%;
+}
+
+.edit-form button:first-of-type {
+    background: #52a58a;
+    color: white;
+}
+
+.edit-form button:last-of-type {
+    background: #ccc;
+    color: black;
+}
+
+.edit-form button:hover {
+    opacity: 0.8;
+}
+
+/* Adjust Buttons */
+.buttons {
+    display: flex;
+    gap: 10px;
+    margin-top: 10px;
+}
+
+.edit-btn {
+    background: #ffcc00;
+    border: none;
+    padding: 8px 12px;
+    cursor: pointer;
+    border-radius: 5px;
+    color: white;
+}
+
+.edit-btn:hover {
+    background: #ffb700;
+}
+
+/* 🔍 Search Button */
+.search-container {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 15px;
+}
+
+.search-btn {
+    background: #52a58a;
+    color: white;
+    border: none;
+    padding: 12px;
+    border-radius: 50%;
+    cursor: pointer;
+    font-size: 18px;
+    transition: all 0.3s ease-in-out;
+}
+
+.search-btn:hover {
+    background: #469a7a;
+    transform: scale(1.1);
+}
+
+/* 🔍 Hidden Search Box */
+.search-box {
+    display: none;
+    position: absolute;
+    top: 50px;
+    background: white;
+    padding: 10px;
+    border-radius: 8px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+    width: 250px;
+}
+
+.search-box input,
+.search-box select {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 8px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+/* 🔍 Show Search Box */
+.search-box.show {
+    display: block;
+    animation: fadeIn 0.3s ease-in-out;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-5px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+
+
+/* 🟢 Mobile Responsive */
+@media (max-width: 900px) {
+    .navbar {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        padding: 15px;
+    }
+
+    .menu-toggle {
+        display: block;
+    }
+
+    .nav-links {
+        display: none;
+        flex-direction: column;
+        width: 100%;
+        text-align: center;
+    }
+
+    .nav-links.show {
+        display: flex;
+    }
+
+    .cards {
+        flex-direction: column;
+        align-items: center;
+    }
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-10px); }
+    to { opacity: 1; transform: translateY(0); }
+}

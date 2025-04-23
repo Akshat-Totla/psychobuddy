@@ -1,0 +1,242 @@
+/* 🟢 General Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+/* 🟢 Background - Soft Pastel Gradient */
+body {
+    background: linear-gradient(135deg, #d1f7c4, #b2ebf2, #a5d6a7);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    text-align: center;
+    padding: 20px;
+}
+
+/* 🟢 Top Navigation Bar */
+.navbar {
+    width: 95%;
+    background: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(15px);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 30px;
+    border-radius: 12px;
+    margin-top: 20px;
+    position: fixed;
+    top: 10px;
+    z-index: 100;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease-in-out;
+}
+
+/* 🟢 Logo */
+.navbar h2 {
+    font-size: 24px;
+    font-weight: 700;
+    color: #222;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.navbar h2 img {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+}
+/* 🟢 Navigation Menu */
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+}
+
+.nav-links li {
+    display: inline-block;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: #333;
+    font-size: 18px;
+    font-weight: 500;
+    padding: 10px 15px;
+    border-radius: 8px;
+    transition: all 0.3s ease-in-out;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+/* 🟢 Hover & Active Effects */
+.nav-links a:hover,
+.nav-links a.active {
+    background: rgba(255, 255, 255, 0.3);
+    color: #ff4081;
+    transform: scale(1.05);
+}
+
+/* 🟢 Mobile Navigation - Hamburger Menu */
+.menu-toggle {
+    display: none;
+    font-size: 24px;
+    cursor: pointer;
+}
+
+/* 🟢 Main Content */
+.main-content {
+    flex: 1;
+    padding: 120px 20px 20px;
+    text-align: center;
+    margin-top: 50px;
+}
+
+.main-content h1 {
+    font-size: 36px;
+    font-weight: 700;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.main-content p {
+    font-size: 18px;
+    color: #555;
+    margin-bottom: 30px;
+}
+
+/* 🟢 Dashboard Cards */
+.cards {
+    display: flex;
+    justify-content: center;
+    gap: 25px;
+    margin-top: 30px;
+    flex-wrap: wrap;
+}
+
+.card {
+    background: rgba(255, 255, 255, 0.3);
+    backdrop-filter: blur(15px);
+    padding: 25px;
+    border-radius: 15px;
+    width: 300px;
+    text-align: center;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+    transition: all 0.3s ease-in-out;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.card img {
+    width: 100%;
+    height: 180px;
+    border-radius: 10px;
+    object-fit: cover;
+    margin-bottom: 15px;
+}
+
+.card h3 {
+    margin-bottom: 10px;
+    font-size: 22px;
+    color: #2c3e50;
+}
+
+.card p {
+    font-size: 16px;
+    color: #555;
+    margin-bottom: 15px;
+}
+
+.card .btn {
+    margin-top: auto;
+    padding: 12px 20px;
+    font-size: 16px;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 25px rgba(0, 0, 0, 0.2);
+}
+
+/* 🟢 Card Icons */
+.card i {
+    font-size: 50px;
+    color: #ff758c;
+    margin-bottom: 15px;
+}
+
+.btn {
+    background: linear-gradient(135deg, #6bbf59, #52a58a);
+    color: white;
+    border: none;
+    padding: 12px 24px;
+    font-size: 18px;
+    font-weight: 600;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.btn:hover {
+    background: linear-gradient(135deg, #5ca04b, #469a7a);
+    transform: scale(1.05);
+}
+
+.btn:active {
+    transform: scale(0.98);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+/* 🟢 Card Icons */
+.card i {
+    font-size: 50px;
+    color: #ff758c;
+    margin-bottom: 15px;
+}
+
+/* 🟢 Mobile Responsive */
+@media (max-width: 900px) {
+    .navbar {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        padding: 15px;
+    }
+
+    .menu-toggle {
+        display: block;
+    }
+
+    .nav-links {
+        display: none;
+        flex-direction: column;
+        width: 100%;
+        text-align: center;
+    }
+
+    .nav-links.show {
+        display: flex;
+    }
+
+    .cards {
+        flex-direction: column;
+        align-items: center;
+    }
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-10px); }
+    to { opacity: 1; transform: translateY(0); }
+}

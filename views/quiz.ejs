@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Mental Health Quiz</title>
+    <link rel="stylesheet" href="/css/quiz.css">
+</head>
+<body>
+    <div class="quiz-container">
+        <h2>Mental Health Assessment</h2>
+        <p>Answer the following questions to assess your mental well-being. This is not a diagnosis, but it can help you understand your mental state.</p>
+        <form action="/submit-quiz" method="POST">
+            
+            <label>1. Over the last two weeks, how often have you felt little interest or pleasure in doing things?</label>
+            <select name="answers[]" required>
+                <option value="0">Not at all</option>
+                <option value="1">Several days</option>
+                <option value="2">More than half the days</option>
+                <option value="3">Nearly every day</option>
+            </select>
+
+            <label>2. Over the last two weeks, how often have you felt down, depressed, or hopeless?</label>
+            <select name="answers[]" required>
+                <option value="0">Not at all</option>
+                <option value="1">Several days</option>
+                <option value="2">More than half the days</option>
+                <option value="3">Nearly every day</option>
+            </select>
+
+            <label>3. How often do you feel nervous, anxious, or on edge?</label>
+            <select name="answers[]" required>
+                <option value="0">Not at all</option>
+                <option value="1">Several days</option>
+                <option value="2">More than half the days</option>
+                <option value="3">Nearly every day</option>
+            </select>
+
+            <label>4. How often do you feel difficulty relaxing?</label>
+            <select name="answers[]" required>
+                <option value="0">Not at all</option>
+                <option value="1">Several days</option>
+                <option value="2">More than half the days</option>
+                <option value="3">Nearly every day</option>
+            </select>
+
+            <label>5. How often do you feel overwhelmed by stress?</label>
+            <select name="answers[]" required>
+                <option value="0">Not at all</option>
+                <option value="1">Several days</option>
+                <option value="2">More than half the days</option>
+                <option value="3">Nearly every day</option>
+            </select>
+
+            <label>6. Do you have trouble sleeping because of stress, anxiety, or overthinking?</label>
+            <select name="answers[]" required>
+                <option value="0">Never</option>
+                <option value="1">Occasionally</option>
+                <option value="2">Frequently</option>
+                <option value="3">Always</option>
+            </select>
+
+            <button type="submit">Submit Quiz</button>
+        </form>
+    </div>
+</body>
+</html>

@@ -1,0 +1,208 @@
+/* 🟢 General Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+
+html, body {
+  height: 100%;
+  width: 100%;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+/* 🟢 Background Styling */
+body {
+  background: linear-gradient(135deg, #d1f7c4, #b2ebf2, #a5d6a7);
+  display: flex;
+  background-size: cover;
+  background-attachment: fixed; /* Fixes scrolling issue */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* 🟢 Ensure Content Expands Properly */
+.main-content {
+  flex: 1; /* Allows content to expand dynamically */
+  width: 100%;
+  max-width: 1200px;
+  padding: 10px;
+  text-align: center;
+}
+
+/* 🟢 Glassmorphism Effect */
+.container {
+  background: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(10px);
+  border-radius: 12px;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.15);
+  padding: 40px ;
+  max-width: 400px;
+  width: 90%;
+  text-align: center;
+  transition: transform 0.3s;
+  margin-top: 100px;
+}
+.container img {
+  width: 100px; /* Adjust size as needed */
+  height: 100px;
+  border-radius: 60%; /* Makes it circular */
+  margin-bottom: 20px;
+}
+
+.container:hover {
+  transform: scale(1.03);
+}
+
+/* 🟢 Headings */
+h1 {
+  font-size: 26px;
+  color: #2C3E50;
+  margin-bottom: 20px;
+}
+
+.container h2 {
+  background: #ffffff88;
+  padding: 15px;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  margin: 20px 0;
+}
+
+.container h2 {
+  color: #2c3e50;
+  font-size: 22px;
+}
+/* 🟢 Input Fields */
+input {
+  width: 100%;
+  padding: 12px;
+  margin: 12px 0;
+  border: none;
+  border-radius: 6px;
+  font-size: 16px;
+  border: 1px solid #ddd;
+}
+
+/* 🟢 Button Styling */
+button {
+  width: 100%;
+  background: linear-gradient(to right, #6a11cb, #2575fc);
+  color: white;
+  padding: 12px;
+  border: none;
+  border-radius: 6px;
+  font-size: 18px;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+}
+
+button:hover {
+  background: linear-gradient(to right, #2575fc, #6a11cb);
+  transform: scale(1.05);
+}
+
+/* 🟢 Links */
+a {
+  color: #2575fc;
+  text-decoration: none;
+  display: block;
+  margin-top: 15px;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/* 🟢 Footer */
+footer {
+  text-align: center;
+  padding: 15px;
+  background: rgba(255, 255, 255, 0.3);
+  backdrop-filter: blur(10px);
+  width: 100%;
+  margin-top: auto;
+}
+
+/* 🟢 Responsive Design */
+@media (max-width: 768px) {
+  .container {
+    width: 90%;
+    padding: 30px;
+  }
+
+  h1 {
+    font-size: 22px;
+  }
+
+  input, button {
+    font-size: 14px;
+  }
+}
+/* 🟢 Ensure Navbar Does Not Affect Other Pages */
+.navbar {
+  position: relative;
+  z-index: 1000;
+}
+
+/* 🟢 Fix Login & Registration Page Layout */
+.auth-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  width: 100%;
+  flex-direction: column;
+}
+
+/* 🟢 Login & Registration Box */
+.auth-box {
+  background: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(10px);
+  border-radius: 12px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.15);
+  padding: 40px;
+  width: 100%;
+  max-width: 400px;
+  text-align: center;
+}
+
+/* 🟢 Ensure Inputs Are Properly Aligned */
+.auth-box input {
+  width: 100%;
+  padding: 12px;
+  margin: 12px 0;
+  border: none;
+  border-radius: 6px;
+  font-size: 16px;
+  border: 1px solid #ddd;
+}
+
+/* 🟢 Fix Button Styling */
+.auth-box button {
+  width: 100%;
+  background: linear-gradient(to right, #6a11cb, #2575fc);
+  color: white;
+  padding: 12px;
+  border: none;
+  border-radius: 6px;
+  font-size: 18px;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+}
+
+.auth-box button:hover {
+  background: linear-gradient(to right, #2575fc, #6a11cb);
+  transform: scale(1.05);
+}
+
+/* 🟢 Prevent Navbar Changes Affecting Forms */
+@media (max-width: 900px) {
+  .auth-box {
+      width: 90%;
+      padding: 30px;
+  }
+}

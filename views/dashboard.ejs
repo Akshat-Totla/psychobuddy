@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Dashboard | Psychobuddy</title>
+    <link rel="stylesheet" href="/css/dashboard.css">
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+</head>
+<body>
+
+    <!-- Top Navigation Bar -->
+    <nav class="navbar">
+        <h2> <img src="/image/logo.webp" alt="Psychobuddy Logo">Psychobuddy</h2>
+        <div class="menu-toggle" onclick="toggleMenu()">☰</div>
+        <ul class="nav-links">
+            <li><a href="/dashboard" class="active"><i class="fas fa-home"></i> Dashboard</a></li>
+            <li><a href="/mood-tracker"><i class="fas fa-chart-line"></i> Mood Tracker</a></li>
+            <li><a href="/resources"><i class="fas fa-book-open"></i> Resources</a></li>
+            <li><a href="/journal"><i class="fas fa-book"></i> Journal</a></li>
+            <li><a href="/selfcare"><i class="fas fa-heart"></i> Self Care</a></li>
+            <li><a href="/meditation"><i class="fas fa-brain"></i> Meditation</a></li>
+            <li><a href="/aboutus" ><i class="fas fa-brain"></i> About Us</a></li>
+            <li><a href="/logout"><i class="fas fa-sign-out-alt"></i> Logout</a></li>
+
+        </ul>
+    </nav>
+
+    <!-- 🟢 Main Content -->
+    <div class="main-content">
+        <h1>Welcome, <%= user.name %></h1>
+        <p>Your mental wellness journey starts here.</p>
+
+         <!-- 🟢 Display Quiz Result -->
+         <% if (typeof quizResult !== 'undefined' && quizResult !== null) { %>
+            <div class="quiz-result">
+                <img src="/image/report.jpg" alt="Healthy Food">
+                <h2>Your Mental Health Report</h2>
+                <p><strong>Diagnosis:</strong> <%= quizResult.diagnosis %></p>
+                
+            </div>
+        <% } else { %>
+            <p>You have not completed the mental health quiz yet. <a href="/quiz">Take the Quiz</a></p>
+        <% } %>
+
+
+        <!-- 🟢 Dashboard Cards -->
+        <div class="cards">
+            <div class="card">
+                <i class="fas fa-smile"></i>
+                <img src="/image/mood.webp" alt="Healthy Food">
+                <h3>Mood Tracker</h3>
+                <% if (typeof latestMood !== 'undefined' && latestMood !== null) { %>
+                    <p><strong>Last Mood:</strong> <%= latestMood.mood %></p>
+                    <p><em>"<%= latestMood.note || 'No notes added' %>"</em></p>
+                <% } else { %>
+                    <p>No mood logged yet.</p>
+                <% } %>
+                <a href="/mood-tracker" class="btn">Log Mood</a>
+            </div>
+
+            <div class="card">
+                <i class="fas fa-headphones"></i>
+                <img src="/image/meditation.jpg" alt="Healthy Food">
+                <h3>Guided Meditation</h3>
+                <p>Listen to calming meditations.</p>
+                <a href="/meditation" class="btn">Meditation</a>
+            </div>
+            <div class="card">
+                <i class="fas fa-tasks"></i>
+                <img src="/image/ex.jpg" alt="Healthy Food">
+                <h3>Self Care Hub</h3>
+                <p>Enhance your well-being with the right food, books, and music.</p>
+                <a href="/selfcare" class="btn">Self-Care</a>
+            </div>
+            
+        </div>
+
+        
+        
+        </div>
+    </div>
+           
+        <!-- 🟢 Streak & Rewards Section -->
+        <div class="streak-rewards">
+            <h2>Your Streak: <strong><%= user.streakCount %> Days</strong></h2>
+            <% if (user.streakCount >= 7) { %>
+                <p>🔥 Great job! You've reached a 7-day streak! Here’s your <strong>Streak Champion</strong> badge! 🎖️</p>
+            <% } %>
+            <% if (user.streakCount >= 30) { %>
+                <p>🏆 Wow! A 30-day streak! You are a <strong>Mindfulness Master</strong>! 🏅</p>
+            <% } %>
+            <% if (user.streakCount === 1) { %>
+                <p>⭐ You’ve started your journey! Keep going and earn more badges! 🌱</p>
+            <% } %>
+        </div>
+
+
+
+    
+<script>
+    function toggleChatbot() {
+        const chatbot = document.getElementById("chatbot");
+        chatbot.style.display = chatbot.style.display === "flex" ? "none" : "flex";
+    }
+</script>
+
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const menuToggle = document.querySelector(".menu-toggle");
+            const navLinks = document.querySelector(".nav-links");
+
+            menuToggle.addEventListener("click", function () {
+                navLinks.classList.toggle("show"); // Toggle menu visibility
+            });
+        });
+
+       
+           
+    </script>
+
+    <footer>
+        <p>&copy; 2024 Psychobuddy. All rights reserved.</p>
+    </footer>
+
+</body>
+</html>

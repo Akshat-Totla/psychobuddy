@@ -1,0 +1,247 @@
+/* General Page Styles */
+body {
+    background: linear-gradient(135deg, #d1f7c4, #b2ebf2, #a5d6a7);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100vh;
+    text-align: center;
+    padding: 20px;
+    margin: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* 🟢 Top Navigation Bar */
+.navbar {
+    width: 95%;
+    background: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(15px);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 30px;
+    border-radius: 12px;
+    margin-top: 20px;
+    position: fixed;
+    top: 10px;
+    z-index: 100;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease-in-out;
+}
+
+/* 🟢 Logo */
+.navbar h2 {
+    font-size: 24px;
+    font-weight: 700;
+    color: #222;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.navbar h2 img {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+}
+/* 🟢 Navigation Menu */
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+}
+
+.nav-links li {
+    display: inline-block;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: #333;
+    font-size: 18px;
+    font-weight: 500;
+    padding: 10px 15px;
+    border-radius: 8px;
+    transition: all 0.3s ease-in-out;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+/* 🟢 Hover & Active Effects */
+.nav-links a:hover,
+.nav-links a.active {
+    background: rgba(255, 255, 255, 0.3);
+    color: #ff4081;
+    transform: scale(1.05);
+}
+
+/* 🟢 Mobile Navigation - Hamburger Menu */
+.menu-toggle {
+    display: none;
+    font-size: 24px;
+    cursor: pointer;
+}
+
+/* 🟢 Main Content */
+.main-content {
+    flex: 1;
+    padding: 120px 20px 20px;
+    text-align: center;
+    margin-top: 50px;
+}
+
+.main-content h1 {
+    font-size: 36px;
+    font-weight: 700;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.main-content p {
+    font-size: 18px;
+    color: #555;
+    margin-bottom: 30px;
+}
+
+#search-bar {
+    padding: 8px;
+    width: 100%;
+    max-width: 300px;
+    margin: 20px auto;
+    display: block;
+    font-size: 16px;
+    border-radius: 5px;
+    border: 1px solid #ddd;
+  }
+/* Search Bar Styles */  
+/* Card Container */
+.cards-container {
+    display: flex;
+    flex-direction: column; /* Stack cards vertically */
+    align-items: center;    /* Center cards horizontally */
+    gap: 30px;              /* Space between cards */
+    padding-bottom: 40px;
+    width: 100%;
+}
+
+/* Individual Card Styles */
+.card {
+    background: rgba(255, 255, 255, 0.3);
+    backdrop-filter: blur(15px);
+    border-radius: 15px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    width: 280px;
+    transition: transform 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+}
+
+/* Card Header */
+.card-header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+
+.card-header h3 {
+    margin: 10px 0 5px;
+    font-size: 1.4em;
+    color: #333;
+    text-align: center;
+}
+
+button.dropdown-toggle {
+    background-color: #f1f1f1;
+    border: none;
+    padding: 5px 12px;
+    border-radius: 6px;
+    font-size: 1.2em;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+
+button.dropdown-toggle:hover {
+    background-color: #e0e0e0;
+}
+
+/* Disorder Image */
+.disorder-logo {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    object-fit: cover;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    margin-bottom: 10px;
+}
+
+/* Dropdown Content */
+.card-body {
+    width: 100%;
+}
+
+.dropdown-content {
+    display: none;
+    text-align: left;
+    margin-top: 10px;
+}
+
+.dropdown-content.show {
+    display: block;
+}
+
+.dropdown-content h4 {
+    font-size: 1.1em;
+    color: #444;
+    margin-bottom: 8px;
+}
+
+.dropdown-content ul {
+    list-style-type: disc;
+    padding-left: 20px;
+}
+
+.dropdown-content ul li {
+    margin-bottom: 8px;
+    font-size: 0.95em;
+    color: #333;
+}
+
+@media (max-width: 900px) {
+    .navbar {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        padding: 15px;
+    }
+
+    .menu-toggle {
+        display: block;
+    }
+
+    .nav-links {
+        display: none;
+        flex-direction: column;
+        width: 100%;
+        text-align: center;
+    }
+
+    .nav-links.show {
+        display: flex;
+    }
+
+    .cards {
+        flex-direction: column;
+        align-items: center;
+    }
+}

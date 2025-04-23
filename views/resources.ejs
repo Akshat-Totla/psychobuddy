@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Mental Health Resources | Psychobuddy</title>
+    <link rel="stylesheet" href="/css/resources.css">
+</head>
+<body>
+    <nav class="navbar">
+        <h2><img src="/image/logo.webp" alt="Psychobuddy Logo">Psychobuddy</h2>
+        <div class="menu-toggle" onclick="toggleMenu()">☰</div>
+        <ul class="nav-links">
+            <li><a href="/dashboard"><i class="fas fa-home"></i> Dashboard</a></li>
+            <li><a href="/mood-tracker"><i class="fas fa-chart-line"></i> Mood Tracker</a></li>
+            <li><a href="/resources" class="active"> <i class="fas fa-book-open"></i> Resources</a></li>
+            <li><a href="/journal"><i class="fas fa-book"></i> Journal</a></li>
+            <li><a href="/selfcare"><i class="fas fa-heart"></i> Self Care</a></li>
+            <li><a href="/meditation"><i class="fas fa-brain"></i> Meditation</a></li>
+            <li><a href="/aboutus"><i class="fas fa-home"></i> About Us</a></li>
+            <li><a href="/logout"><i class="fas fa-sign-out-alt"></i> Logout</a></li>
+        </ul>
+    </nav>
+
+    <div class="main-content">
+        <div class="container">
+            <h1>Understand Your Mental Health</h1>
+            <p>Explore detailed resources on mental health conditions</p>
+             <!-- Search Bar -->
+             <div class="search-bar">
+                <input type="text" id="searchInput" placeholder="Search disorders...">
+            </div>
+
+            <% const conditions = [
+                {
+                    name: "Depression",
+                    icon: "/image/depression.jpg",
+                    pdfLink: "https://applications.emro.who.int/docs/EMRPUB_leaflet_2019_mnh_219_en.pdf?ua=1&ua=1"
+                },
+                {
+                    name: "ADHD",
+                    icon: "/image/adhd.jpeg",
+                    pdfLink: "https://applications.emro.who.int/docs/EMRPUB_leaflet_2019_mnh_214_en.pdf"
+                },
+                {
+                    name: "Anxiety",
+                    icon: "/image/anxiety.jpg",
+                    pdfLink: "https://applications.emro.who.int/docs/WHOEMMNH231E-eng.pdf?ua=1"
+                },
+                {
+                    name: "PTSD",
+                    icon: "/image/ptsd.jpg",
+                    pdfLink: "https://applications.emro.who.int/docs/WHOEMMNH235E-eng.pdf?ua=1"
+                },
+                {
+                    name: "OCD",
+                    icon: "/image/ocd.jpg",
+                    pdfLink: "https://applications.emro.who.int/docs/WHOEMMNH232E-eng.pdf?ua=1"
+                },
+                {
+                    name: "Bipolar Disorder",
+                    icon: "/image/bipolar.jpg",
+                    pdfLink: "https://applications.emro.who.int/docs/EMRPUB_leaflet_2019_mnh_216_en.pdf"
+                },
+                {
+                    name: "Eating Disorders",
+                    icon: "/image/eating-disorder.jpg",
+                    pdfLink: "https://applications.emro.who.int/docs/EMRPUB_leaflet_2019_mnh_217_en.pdf"
+                },
+                {
+                    name: "Schizophrenia",
+                    icon: "/image/schizophrenia.jpg",
+                    pdfLink: "https://applications.emro.who.int/docs/EMRPUB_leaflet_2019_mnh_223_en.pdf"
+                },
+                {
+                    name: "Stress",
+                    icon: "/image/stress.jpg",
+                    pdfLink: "https://applications.emro.who.int/docs/WHOEMMNH236E-eng.pdf?ua=1"
+                },
+                {
+                    name: "Panic disorder",
+                    icon: "/image/panic.jpg",
+                    pdfLink: "https://applications.emro.who.int/docs/WHOEMMNH233E-eng.pdf?ua=1"
+                },
+
+                {
+                    name: "Phobias",
+                    icon: "/image/phobias.jpg",
+                    pdfLink: "https://applications.emro.who.int/docs/WHOEMMNH234E-eng.pdf?ua=1"
+                },
+                {
+                    name: "Addiction",
+                    icon: "/image/addiction.jpg",
+                    pdfLink: "https://applications.emro.who.int/docs/EMRPUB_leaflet_2019_mnh_213_en.pdf?ua=1&ua=1"
+                },
+                {
+                    name: "Conduct disorder",
+                    icon: "/image/conduct.jpg",
+                    pdfLink: "https://applications.emro.who.int/docs/EMRPUB_leaflet_2019_mnh_217_en.pdf?ua=1&ua=1"
+                },
+                {
+                    name: "Dementia",
+                    icon: "/image/Dementia.jpg",
+                    pdfLink: "https://applications.emro.who.int/docs/EMRPUB_leaflet_2019_mnh_218_en.pdf?ua=1&ua=1"
+                },
+                {
+                    name: "Epilepsy and seizures",
+                    icon: "/image/Epilepsy and seizures.jpg",
+                    pdfLink: "https://applications.emro.who.int/docs/EMRPUB_leaflet_2019_mnh_220_en.pdf?ua=1&ua=1"
+                },
+                {
+                    name: "Intellectual disability",
+                    icon: "/image/Intellectual disability.jpg",
+                    pdfLink: "https://applications.emro.who.int/docs/EMRPUB_leaflet_2019_mnh_221_en.pdf?ua=1&ua=1"
+                },
+                {
+                    name: "Suicide and self-harm",
+                    icon: "/image/Suicide and self-harm.jpg",
+                    pdfLink: "https://applications.emro.who.int/docs/EMRPUB_leaflet_2019_mnh_224_en.pdf?ua=1&ua=1"
+                }
+
+
+            ]; %>
+
+<div class="condition-grid">
+    <% conditions.forEach((condition) => { %>
+        <div class="condition-item" data-name="<%= condition.name.toLowerCase() %>">
+            <div class="condition-header">
+                <img src="<%= condition.icon %>" alt="<%= condition.name %>" class="condition-icon">
+                <h3><%= condition.name %></h3>
+            </div>
+            <a href="<%= condition.pdfLink %>" class="read-more-link" target="_blank">Read More</a>
+        </div>
+                <% }); %>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function toggleMenu() {
+            const navLinks = document.querySelector(".nav-links");
+            navLinks.classList.toggle("show");
+        }
+
+        document.querySelectorAll('.btn').forEach(button => {
+            button.addEventListener('click', function (event) {
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    event.preventDefault();
+                    target.scrollIntoView({ behavior: "smooth" });
+                }
+            });
+        });
+
+        document.getElementById('searchInput').addEventListener('input', function () {
+            const searchValue = this.value.toLowerCase();
+            const items = document.querySelectorAll('.condition-item');
+
+            items.forEach(item => {
+                const name = item.getAttribute('data-name');
+                if (name.includes(searchValue)) {
+                    item.style.display = 'block';
+                } else {
+                    item.style.display = 'none';
+                }
+            });
+        });
+    </script>
+</body>
+</html>

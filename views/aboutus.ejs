@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About US</title>
+  
+  <style>
+    body {
+    background: linear-gradient(135deg, #d1f7c4, #b2ebf2, #a5d6a7);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    text-align: center;
+    padding: 20px;
+}
+
+/* 🟢 Top Navigation Bar */
+.navbar {
+    width: 95%;
+    background: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(15px);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 30px;
+    border-radius: 12px;
+    margin-top: 20px;
+    position: fixed;
+    top: 10px;
+    z-index: 100;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease-in-out;
+}
+
+/* 🟢 Logo */
+.navbar h2 {
+    font-size: 24px;
+    font-weight: 700;
+    color: #222;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.navbar h2 img {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+}
+/* 🟢 Navigation Menu */
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+}
+
+.nav-links li {
+    display: inline-block;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: #333;
+    font-size: 18px;
+    font-weight: 500;
+    padding: 10px 15px;
+    border-radius: 8px;
+    transition: all 0.3s ease-in-out;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+/* 🟢 Hover & Active Effects */
+.nav-links a:hover,
+.nav-links a.active {
+    background: rgba(255, 255, 255, 0.3);
+    color: #ff4081;
+    transform: scale(1.05);
+}
+
+/* 🟢 Mobile Navigation - Hamburger Menu */
+.menu-toggle {
+    display: none;
+    font-size: 24px;
+    cursor: pointer;
+}
+
+/* 🟢 Main Content */
+.main-content {
+    flex: 1;
+    padding: 120px 20px 20px;
+    text-align: center;
+    margin-top: 50px;
+}
+
+.main-content h1 {
+    font-size: 36px;
+    font-weight: 700;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.main-content p {
+    font-size: 18px;
+    color: #555;
+    margin-bottom: 30px;
+}
+    .about-section {
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 40px 20px;
+      font-family: 'Segoe UI', sans-serif;
+    }
+
+    .about-section h1 {
+      font-size: 2.5rem;
+      margin-bottom: 20px;
+      color: #1e88e5;
+      text-align: center;
+    }
+
+    .about-section p {
+      font-size: 1.1rem;
+      line-height: 1.7;
+      color: #444;
+    }
+
+    .about-cards {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 30px;
+      justify-content: center;
+      margin-top: 40px;
+    }
+
+    .card {
+      flex: 1 1 250px;
+      background: #f9f9f9;
+      padding: 20px;
+      border-radius: 12px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+      text-align: center;
+    }
+
+    .card img {
+      width: 70px;
+      margin-bottom: 15px;
+    }
+
+    .card h3 {
+      font-size: 1.2rem;
+      margin-bottom: 10px;
+    }
+
+    .card p {
+      font-size: 0.95rem;
+      color: #666;
+    }
+  </style>
+</head>
+<body>
+    <nav class="navbar">
+        <h2> <img src="/image/logo.webp" alt="Psychobuddy Logo">Psychobuddy</h2>
+        <div class="menu-toggle" onclick="toggleMenu()">☰</div>
+        <ul class="nav-links">
+            <li><a href="/dashboard"><i class="fas fa-heart"></i> Dashboard</a></li>
+            <li><a href="/logout"><i class="fas fa-sign-out-alt"></i> Logout</a></li>
+        </ul>
+    </nav>
+    <div class="main-content">
+  <div class="about-section">
+    <h1>About Psychobuddy</h1>
+
+    <p>
+      Psychobuddy is your digital mental health companion, designed to support emotional well-being through mood tracking,  self-care tools, and guided journaling. We believe that mental health support should be accessible, personalized, and stigma-free.
+    </p>
+
+    <p>
+      Our mission is to empower individuals to understand, manage, and improve their mental health through technology. Whether you're navigating stress, anxiety, or simply want to check in with your feelings — we're here for you.
+    </p>
+
+    <div class="about-cards">
+      <div class="card">
+        <img src="data:image/png;base64,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" alt="Mission">
+        <h3>Our Mission</h3>
+        <p>To provide affordable,  mental wellness support and promote emotional literacy through thoughtful tools and resources.</p>
+      </div>
+
+      
+
+      <div class="card">
+        <img src="https://cdn-icons-png.flaticon.com/512/2702/2702139.png" alt="Why Psychobuddy">
+        <h3>Why Psychobuddy?</h3>
+        <p>We created this platform to bridge the gap between mental health needs and the accessibility of effective tools — all in one place.</p>
+      </div>
+    </div>
+  </div>
+    </div>
+
+  <script>
+    function toggleMenu() {
+            const navLinks = document.querySelector(".nav-links");
+            navLinks.classList.toggle("show");
+        }
+        document.querySelectorAll('.dropdown-toggle').forEach(button => {
+            button.addEventListener('click', () => {
+                const dropdownContent = button.closest('.card').querySelector('.dropdown-content');
+                dropdownContent.classList.toggle('show');
+                button.textContent = dropdownContent.classList.contains('show') ? 'close' : 'click here';
+            });
+        });
+  </script>
+</body>
+</html>

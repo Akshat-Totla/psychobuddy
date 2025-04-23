@@ -1,0 +1,229 @@
+/* 🟢 General Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+/* 🟢 Background */
+body {
+    background: linear-gradient(135deg, #d1f7c4, #b2ebf2, #a5d6a7);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    text-align: center;
+    padding: 20px;
+}
+
+/* 🟢 Navbar */
+.navbar {
+    width: 95%;
+    background: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(15px);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 30px;
+    border-radius: 12px;
+    margin-top: 20px;
+    position: fixed;
+    top: 10px;
+    z-index: 100;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease-in-out;
+}
+
+/* 🟢 Logo */
+.navbar h2 {
+    font-size: 24px;
+    font-weight: 700;
+    color: #222;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.navbar h2 img {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+}
+
+/* 🟢 Navigation Menu */
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+    transition: all 0.3s ease-in-out;
+}
+
+.nav-links li {
+    display: inline-block;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: #333;
+    font-size: 18px;
+    font-weight: 500;
+    padding: 10px 15px;
+    border-radius: 8px;
+    transition: all 0.3s ease-in-out;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+/* 🟢 Hover & Active Effects */
+.nav-links a:hover,
+.nav-links a.active {
+    background: rgba(255, 255, 255, 0.3);
+    color: #ff4081;
+    transform: scale(1.05);
+}
+
+/* 🟢 Mobile Navigation - Hamburger Menu */
+.menu-toggle {
+    display: none;
+    font-size: 24px;
+    cursor: pointer;
+    padding: 10px;
+    border-radius: 5px;
+    background: rgba(255, 255, 255, 0.3);
+    transition: 0.3s;
+}
+
+.menu-toggle:hover {
+    background: rgba(255, 255, 255, 0.5);
+}
+/* 🟢 Meditation Wrapper */
+.meditation-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 90%;
+    max-width: 800px;
+    margin-top: 100px;
+}
+/* 🟢 Meditation Container */
+.meditation-container {
+    max-width: 800px;
+    width: 90%;
+    background: rgba(255, 255, 255, 0.3);
+    backdrop-filter: blur(10px);
+    padding: 30px ;
+    border-radius: 15px;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    margin-top: 80px;
+    cursor: pointer;
+}
+
+.meditation-container h1 {
+    font-size: 36px;
+    color: #2c3e50;
+    margin-bottom: 10px;
+}
+
+.meditation-container p {
+    font-size: 18px;
+    color: #555;
+    margin-bottom: 20px;
+}
+
+.meditation-container:hover {
+    background: rgba(255, 255, 255, 0.5);
+    transition: all 0.3s ease-in-out;
+}
+
+/* 🟢 Breathing Box */
+.breathing-box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 220px;
+    height: 220px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.4);
+    backdrop-filter: blur(12px);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+    margin: 30px auto;
+    position: relative;
+}
+
+.breathing-box p {
+    font-size: 22px;
+    font-weight: bold;
+    color: #2c3e50;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.circle {
+    width: 100px;
+    height: 100px;
+    background: #ff758c;
+    border-radius: 50%;
+    transition: transform 4s ease-in-out;
+}
+
+/* 🟢 Video Section */
+.video-section {
+    margin-top: 30px;
+}
+
+.video-section h2 {
+    font-size: 24px;
+    color: #2c3e50;
+    margin-bottom: 10px;
+}
+
+iframe {
+    border-radius: 10px;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+    max-width: 100%;
+}
+
+@media (max-width: 900px) {
+    .navbar {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        padding: 15px;
+    }
+    .menu-toggle {
+        display: block;
+    }
+    .nav-links {
+        display: none;
+        flex-direction: column;
+        width: 100%;
+        text-align: center;
+        padding: 0;
+    }
+    .nav-links.show {
+        display: flex;
+        animation: fadeIn 0.3s ease-in-out;
+    }
+    .nav-links li {
+        width: 100%;
+        padding: 10px;
+        transition: 0.3s;
+    }
+    .nav-links li:hover {
+        background: rgba(255, 255, 255, 0.2);
+    }
+}
+
+/* 🟢 Smooth Fade-in Animation */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-10px); }
+    to { opacity: 1; transform: translateY(0); }
+}

@@ -1,0 +1,391 @@
+<!-- diet.html (or equivalent in your project) -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book Recommendations</title>
+    <link rel="stylesheet" href="/css/food-diet.css">
+</head>
+<body>
+    
+    <nav class="navbar">
+        <h2> <img src="/image/logo.webp" alt="Psychobuddy Logo">Psychobuddy</h2>
+        <div class="menu-toggle" onclick="toggleMenu()">☰</div>
+        <ul class="nav-links">
+            <li><a href="/selfcare"><i class="fas fa-heart"></i> Self Care</a></li>
+            <li><a href="/logout"><i class="fas fa-sign-out-alt"></i> Logout</a></li>
+        </ul>
+    </nav>
+    <div class="main-content">
+        <div class="container">
+            <h1>Book Recommendations for Mental Health</h1>
+            <p>Explore helpful book recommendations for various mental health conditions.</p>            
+            <input type="text" id="search-bar" placeholder="Search disorders...">
+
+            <section class="cards-container">
+                <!-- Each disorder card -->
+                <div class="card">
+                    <div class="card-header">
+                        <img src="image/depression.jpg" alt="Logo" class="disorder-logo">
+                        <h3>Depression</h3>
+                        <button class="dropdown-toggle">click here</button>
+                    </div>
+                    <div class="card-body">
+                        <div class="dropdown-content">
+                            <h4>Book Recommendations:</h4>
+                            <ul>
+                                <li><strong>The Noonday Demon</strong> by Andrew Solomon</li>
+                                <li><strong>Feeling Good: The New Mood Therapy</strong> by David D. Burns</li>
+                                <li><strong>Lost Connections</strong> by Johann Hari</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card-header">
+                        <img src="image/adhd.jpeg" alt="ADHD Logo" class="disorder-logo">
+                        <h3>ADHD</h3>
+                        <button class="dropdown-toggle">click here</button>
+                    </div>
+                    <div class="card-body">
+                        <div class="dropdown-content">
+                            <h4>Book Recommendations:</h4>
+                            <ul>
+                                <li><strong>Driven to Distraction</strong> by Edward M. Hallowell</li>
+                                <li><strong>ADHD 2.0</strong> by Edward M. Hallowell & John J. Ratey</li>
+                                <li><strong>Taking Charge of ADHD</strong> by Russell A. Barkley</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card-header">
+                        <img src="image/anxiety.jpg" alt="Anxiety Logo" class="disorder-logo">
+                        <h3>Anxiety</h3>
+                        <button class="dropdown-toggle">click here</button>
+                    </div>
+                    <div class="card-body">
+                        <div class="dropdown-content">
+                            <h4>Book Recommendations:</h4>
+                            <ul>
+                                <li><strong>The Anxiety and Phobia Workbook</strong> by Edmund J. Bourne</li>
+                                <li><strong>First, We Make the Beast Beautiful</strong> by Sarah Wilson</li>
+                                <li><strong>Anxiety Relief: Self Help</strong> by Helen Saunders</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- PTSD -->
+                <div class="card">
+                    <div class="card-header">
+                        <img src="image/ptsd.jpg" alt="PTSD Logo" class="disorder-logo">
+                        <h3>PTSD</h3>
+                        <button class="dropdown-toggle">click here</button>
+                    </div>
+                    <div class="card-body">
+                        <div class="dropdown-content">
+                            <h4>Book Recommendations:</h4>
+                            <ul>
+                                <li><strong>The Body Keeps the Score</strong> by Bessel van der Kolk</li>
+                                <li><strong>Waking the Tiger</strong> by Peter Levine</li>
+                                <li><strong>Trauma and Recovery</strong> by Judith L. Herman</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- OCD -->
+                <div class="card">
+                    <div class="card-header">
+                        <img src="image/ocd.jpg" alt="OCD Logo" class="disorder-logo">
+                        <h3>OCD</h3>
+                        <button class="dropdown-toggle">click here</button>
+                    </div>
+                    <div class="card-body">
+                        <div class="dropdown-content">
+                            <h4>Book Recommendations:</h4>
+                            <ul>
+                                <li><strong>Brain Lock</strong> by Jeffrey Schwartz</li>
+                                <li><strong>The OCD Workbook</strong> by Bruce Hyman & Cherlene Pedrick</li>
+                                <li><strong>Freedom from Obsessive-Compulsive Disorder</strong> by Jonathan Grayson</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Bipolar Disorder -->
+                <div class="card">
+                    <div class="card-header">
+                        <img src="image/bipolar.jpg" alt="Bipolar Logo" class="disorder-logo">
+                        <h3>Bipolar Disorder</h3>
+                        <button class="dropdown-toggle">click here</button>
+                    </div>
+                    <div class="card-body">
+                        <div class="dropdown-content">
+                            <h4>Book Recommendations:</h4>
+                            <ul>
+                                <li><strong>An Unquiet Mind</strong> by Kay Redfield Jamison</li>
+                                <li><strong>Bipolar Disorder: A Guide for Patients and Families</strong> by Francis Mark Mondimore</li>
+                                <li><strong>The Bipolar Disorder Survival Guide</strong> by David J. Miklowitz</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Eating Disorders -->
+                <div class="card">
+                    <div class="card-header">
+                        <img src="image/eating-disorder.jpg" alt="Eating Disorders Logo" class="disorder-logo">
+                        <h3>Eating Disorders</h3>
+                        <button class="dropdown-toggle">click here</button>
+                    </div>
+                    <div class="card-body">
+                        <div class="dropdown-content">
+                            <h4>Book Recommendations:</h4>
+                            <ul>
+                                <li><strong>Life Without Ed</strong> by Jenni Schaefer</li>
+                                <li><strong>Brave Girl Eating</strong> by Harriet Brown</li>
+                                <li><strong>Overcoming Binge Eating</strong> by Christopher G. Fairburn</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Continue similar changes for other disorders -->
+
+<!-- Schizophrenia -->
+<div class="card">
+  <div class="card-header">
+    <img src="image/schizophrenia.jpg" alt="Schizophrenia Logo" class="disorder-logo">
+    <h3>Schizophrenia</h3>
+    <button class="dropdown-toggle">click here</button>
+  </div>
+  <div class="card-body">
+    <div class="dropdown-content">
+      <h4>Book Recommendations:</h4>
+      <ul>
+        <li><strong>The Center Cannot Hold: My Journey Through Madness</strong> by Elyn Saks - A personal memoir by a law professor living with schizophrenia.</li>
+        <li><strong>Surviving Schizophrenia: A Family Manual</strong> by E. Fuller Torrey - Offers guidance for families coping with schizophrenia.</li>
+        <li><strong>I'm Not Sick, I Don't Need Help!</strong> by Xavier Amador - Focuses on insight and treatment strategies for schizophrenia.</li>
+        <li><strong>Schizophrenia: A Blueprint for Recovery</strong> by Peter M. Breggin - A guide for individuals seeking to recover from schizophrenia.</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<!-- Stress -->
+<div class="card">
+  <div class="card-header">
+    <img src="image/stress.jpg" alt="Stress Logo" class="disorder-logo">
+    <h3>Stress</h3>
+    <button class="dropdown-toggle">click here</button>
+  </div>
+  <div class="card-body">
+    <div class="dropdown-content">
+      <h4>Book Recommendations:</h4>
+      <ul>
+        <li><strong>The Relaxation Response</strong> by Herbert Benson - Offers techniques to reduce stress through relaxation methods.</li>
+        <li><strong>Why Zebras Don't Get Ulcers</strong> by Robert M. Sapolsky - Explores the science of stress and its effects on the body.</li>
+        <li><strong>The Stress Solution</strong> by Rangan Chatterjee - A practical guide to managing stress in everyday life.</li>
+        <li><strong>Burnout: The Secret to Unlocking the Stress Cycle</strong> by Emily Nagoski & Amelia Nagoski - Focuses on preventing and recovering from burnout.</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<!-- Panic Disorder -->
+<div class="card">
+  <div class="card-header">
+    <img src="image/panic.jpg" alt="Panic Disorder Logo" class="disorder-logo">
+    <h3>Panic Disorder</h3>
+    <button class="dropdown-toggle">click here</button>
+  </div>
+  <div class="card-body">
+    <div class="dropdown-content">
+      <h4>Book Recommendations:</h4>
+      <ul>
+        <li><strong>The Anxiety and Phobia Workbook</strong> by Edmund J. Bourne - A comprehensive guide with strategies for managing panic attacks.</li>
+        <li><strong>When Panic Attacks</strong> by David D. Burns - A self-help book focused on overcoming panic and anxiety.</li>
+        <li><strong>Hope and Help for Your Nerves</strong> by Claire Weekes - Provides practical advice for dealing with panic attacks and anxiety disorders.</li>
+        <li><strong>The Panic Attack Recovery Book</strong> by Shirley Swede - Focuses on simple yet effective methods to overcome panic disorder.</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<!-- Phobias -->
+<div class="card">
+  <div class="card-header">
+    <img src="image/phobias.jpg" alt="Phobias Logo" class="disorder-logo">
+    <h3>Phobias</h3>
+    <button class="dropdown-toggle">click here</button>
+  </div>
+  <div class="card-body">
+    <div class="dropdown-content">
+      <h4>Book Recommendations:</h4>
+      <ul>
+        <li><strong>Feel the Fear and Do It Anyway</strong> by Susan Jeffers - A self-help book addressing overcoming fear and phobias.</li>
+        <li><strong>Overcoming Specific Phobias</strong> by Adam J. Cox - Offers a step-by-step guide for overcoming specific phobias.</li>
+        <li><strong>Phobia Free</strong> by Mike James - A guide to overcoming a variety of phobias using cognitive-behavioral techniques.</li>
+        <li><strong>The Phobia Cure</strong> by Dr. K.R. Lewis - A practical approach to confronting and overcoming phobias.</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<!-- Addiction Recovery -->
+<div class="card">
+  <div class="card-header">
+    <img src="image/addiction.jpg" alt="Addiction Logo" class="disorder-logo">
+    <h3>Addiction Recovery</h3>
+    <button class="dropdown-toggle">click here</button>
+  </div>
+  <div class="card-body">
+    <div class="dropdown-content">
+      <h4>Book Recommendations:</h4>
+      <ul>
+        <li><strong>Clean: Overcoming Addiction and Ending America’s Greatest Tragedy</strong> by David Sheff - Explores addiction and its recovery process.</li>
+        <li><strong>The Recovery Book</strong> by Al J. Mooney, Howard Eisenberg, and Howard M. Eisenberg - A comprehensive guide for individuals recovering from addiction.</li>
+        <li><strong>Alcoholics Anonymous: The Big Book</strong> by Alcoholics Anonymous - The foundational text for the Alcoholics Anonymous program.</li>
+        <li><strong>Unbroken: A World War II Story of Survival, Resilience, and Redemption</strong> by Laura Hillenbrand - A story of recovery and resilience, focusing on addiction recovery after trauma.</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<!-- Conduct Disorder -->
+<div class="card">
+  <div class="card-header">
+    <img src="image/conduct.jpg" alt="Conduct Disorder Logo" class="disorder-logo">
+    <h3>Conduct Disorder</h3>
+    <button class="dropdown-toggle">click here</button>
+  </div>
+  <div class="card-body">
+    <div class="dropdown-content">
+      <h4>Book Recommendations:</h4>
+      <ul>
+        <li><strong>The Explosive Child</strong> by Ross W. Greene - Provides techniques for managing children with behavioral issues.</li>
+        <li><strong>Parenting a Child Who Has Intense Emotions</strong> by Pat Harvey & Jeanine Penzo - Offers strategies for managing challenging behaviors in children with conduct disorder.</li>
+        <li><strong>Raising An Emotionally Intelligent Child</strong> by John Gottman - Focuses on emotional intelligence as a tool for managing conduct disorder behaviors.</li>
+        <li><strong>Stop Walking on Eggshells</strong> by Paul T. Mason & Randi Kreger - A guide for parents and caregivers dealing with challenging behaviors from children.</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<!-- Dementia -->
+<div class="card">
+  <div class="card-header">
+    <img src="image/Dementia.jpg" alt="Dementia Logo" class="disorder-logo">
+    <h3>Dementia</h3>
+    <button class="dropdown-toggle">click here</button>
+  </div>
+  <div class="card-body">
+    <div class="dropdown-content">
+      <h4>Book Recommendations:</h4>
+      <ul>
+        <li><strong>The 36-Hour Day</strong> by Nancy L. Mace & Peter V. Rabins - A guide for families caring for someone with dementia.</li>
+        <li><strong>Still Alice</strong> by Lisa Genova - A fictional portrayal of a Harvard professor's journey with early-onset Alzheimer's.</li>
+        <li><strong>Living with Alzheimer's: A Guide for Families</strong> by K. S. Lamb - Offers practical advice for living with someone with Alzheimer's disease.</li>
+        <li><strong>The Dementia Caregiver</strong> by Marc E. Agronin - A guide for caregivers dealing with the challenges of dementia.</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<!-- Epilepsy and Seizures -->
+<div class="card">
+  <div class="card-header">
+    <img src="image/Epilepsy and seizures.jpg" alt="Epilepsy Logo" class="disorder-logo">
+    <h3>Epilepsy & Seizures</h3>
+    <button class="dropdown-toggle">click here</button>
+  </div>
+  <div class="card-body">
+    <div class="dropdown-content">
+      <h4>Book Recommendations:</h4>
+      <ul>
+        <li><strong>Epilepsy: 300 Questions and Answers for Patients, Families, and Providers</strong> by Jill M. A. Gordon - A helpful resource for those affected by epilepsy.</li>
+        <li><strong>The Epilepsy Diet Treatment</strong> by John M. Freeman & Jennifer L. Freeman - Offers dietary strategies like the ketogenic diet for controlling seizures.</li>
+        <li><strong>Seizures and Epilepsy in Childhood</strong> by Adam B. McNamara - A comprehensive guide to childhood epilepsy.</li>
+        <li><strong>The Seizure Diary</strong> by Johnathan H. Gorman - A tool for tracking seizures and medications, helpful for people with epilepsy.</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<!-- Intellectual Disability -->
+<div class="card">
+  <div class="card-header">
+    <img src="image/intellectual disability.jpg" alt="Intellectual Disability Logo" class="disorder-logo">
+    <h3>Intellectual Disability</h3>
+    <button class="dropdown-toggle">click here</button>
+  </div>
+  <div class="card-body">
+    <div class="dropdown-content">
+      <h4>Book Recommendations:</h4>
+      <ul>
+        <li><strong>The Out-of-Sync Child</strong> by Carol Kranowitz - Insight into developmental issues related to intellectual disabilities.</li>
+        <li><strong>Raising Children with Intellectual Disabilities</strong> by David T. Feinstein - A guide for parenting children with intellectual disabilities.</li>
+        <li><strong>The Social Skills Picture Book</strong> by Jed Baker - Helps children with intellectual disabilities learn essential social skills.</li>
+        <li><strong>Teaching Students with Severe Disabilities</strong> by Diane M. Browder & Fred Spooner - A guide for educators working with students with severe disabilities.</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<!-- Suicide & Self-Harm -->
+<div class="card">
+  <div class="card-header">
+    <img src="image/Suicide and self-harm.jpg" alt="Suicide Prevention Logo" class="disorder-logo">
+    <h3>Suicide & Self-Harm</h3>
+    <button class="dropdown-toggle">click here</button>
+  </div>
+  <div class="card-body">
+    <div class="dropdown-content">
+      <h4>Book Recommendations:</h4>
+      <ul>
+        <li><strong>No Time to Say Goodbye: Surviving The Suicide of a Loved One</strong> by Carla Fine - A guide for those coping with the aftermath of suicide.</li>
+        <li><strong>The Suicide and Self-Harm Prevention Handbook</strong> by Mark Williams & John Wilson - Practical advice for preventing self-harm and suicide.</li>
+        <li><strong>Waking Up: A Guide to Understanding and Overcoming Suicide</strong> by David L. Shneidman - Offers psychological insights into the causes of suicide.</li>
+        <li><strong>Saving Lives: Preventing Suicide</strong> by David A. Jobes - A guide to the therapeutic approach for helping individuals at risk of suicide.</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+            </section>
+        </div>
+    </div>
+
+    <script>
+        function toggleMenu() {
+            const navLinks = document.querySelector(".nav-links");
+            navLinks.classList.toggle("show");
+        }
+        document.querySelectorAll('.dropdown-toggle').forEach(button => {
+            button.addEventListener('click', () => {
+                const dropdownContent = button.closest('.card').querySelector('.dropdown-content');
+                dropdownContent.classList.toggle('show');
+                button.textContent = dropdownContent.classList.contains('show') ? 'close' : 'click here';
+            });
+        });
+        document.getElementById('search-bar').addEventListener('input', function(event) {
+            const searchTerm = event.target.value.toLowerCase();
+            const cards = document.querySelectorAll('.card');
+            
+            cards.forEach(card => {
+                const title = card.querySelector('h3').textContent.toLowerCase();
+                if (title.includes(searchTerm)) {
+                    card.style.display = '';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        });
+    </script>
+</body>
+</html>

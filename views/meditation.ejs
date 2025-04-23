@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Meditation | Psychobuddy</title>
+    <link rel="stylesheet" href="/css/meditation.css">
+</head>
+<body>
+    
+    <!-- 🟢 Navbar -->
+    <nav class="navbar">
+        <h2><img src="/image/logo.webp" alt="Psychobuddy Logo">Psychobuddy</h2>
+        <div class="menu-toggle" onclick="toggleMenu()">☰</div>
+        <ul class="nav-links">
+            <li><a href="/dashboard" ><i class="fas fa-home"></i> Dashboard</a></li>
+            <li><a href="/mood-tracker"><i class="fas fa-chart-line"></i> Mood Tracker</a></li>
+            <li><a href="/resources"><i class="fas fa-book-open"></i> Resources</a></li>
+            <li><a href="/journal"><i class="fas fa-book"></i> Journal</a></li>
+            <li><a href="/selfcare"><i class="fas fa-heart"></i> Self Care</a></li>
+            <li><a href="/meditation" class="active"><i class="fas fa-brain"></i> Meditation</a></li>
+            <li><a href="/aboutus" ><i class="fas fa-home"></i> About Us</a></li>
+
+            <li><a href="/logout"><i class="fas fa-sign-out-alt"></i> Logout</a></li>
+       </ul>
+    </nav>
+    
+    <!-- 🟢 Main Content -->
+    <div class="meditation-wrapper">
+        <!-- Left Section: Breathing Exercise -->
+        <div class="meditation-container" onclick="toggleBreathing()">
+            <h1>Relax & Meditate</h1>
+            <p>Tap to start/stop your guided breathing exercise.</p>
+            
+            <div class="breathing-box">
+                <div class="circle"></div>
+                <p id="breathing-text">Tap to Start</p>
+            </div>
+        </div>
+        
+        <!-- Divider -->
+        <div class="divider"></div>
+    </div>  
+        <!-- Right Section: Guided Meditation Videos -->
+        <div class="video-section">
+            <h2>Guided Meditation</h2>
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/inpok4MKVLM" 
+                title="Guided Meditation" frameborder="0" allowfullscreen></iframe>
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/O-6f5wQXSu8" 
+                title="5-Minute Meditation" frameborder="0" allowfullscreen></iframe>
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/ZToicYcHIOU" 
+                title="10-Minute Guided Meditation" frameborder="0" allowfullscreen></iframe>
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/4EaMJOo1jks" 
+                title="Breathing Exercise" frameborder="0" allowfullscreen></iframe>
+        </div>
+   
+    
+        <script>
+            function toggleMenu() {
+                const navLinks = document.querySelector(".nav-links");
+                navLinks.classList.toggle("show");
+            }
+        
+            let isBreathing = false;
+            let breathingTimeout;
+        
+            function toggleBreathing() {
+                const breathingText = document.getElementById("breathing-text");
+                const circle = document.querySelector(".circle");
+        
+                if (isBreathing) {
+                    clearTimeout(breathingTimeout);
+                    breathingText.innerText = "Tap to Start";
+                    circle.style.transform = "scale(1)";
+                    isBreathing = false;
+                    return;
+                }
+        
+                isBreathing = true;
+                function breathingCycle() {
+                    if (!isBreathing) return;
+                    breathingText.innerText = "Breathe In";
+                    circle.style.transform = "scale(1.5)";
+                    
+                    breathingTimeout = setTimeout(() => {
+                        if (!isBreathing) return;
+                        breathingText.innerText = "Hold";
+                        
+                        breathingTimeout = setTimeout(() => {
+                            if (!isBreathing) return;
+                            breathingText.innerText = "Breathe Out";
+                            circle.style.transform = "scale(1)";
+                            
+                            breathingTimeout = setTimeout(breathingCycle, 2000);
+                        }, 2000);
+                    }, 2000);
+                }
+                breathingCycle();
+            }
+        </script>
+        
+    
+</body>
+</html>

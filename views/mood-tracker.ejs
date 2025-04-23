@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Mood Tracker | Psychobuddy</title>
+    <link rel="stylesheet" href="/css/mood.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+
+    <!-- 🟢 Navbar -->
+    <nav class="navbar">
+        <h2><img src="/image/logo.webp" alt="Psychobuddy Logo">Psychobuddy</h2>
+        <div class="menu-toggle" onclick="toggleMenu()">☰</div>
+        <ul class="nav-links">
+            <li><a href="/dashboard"><i class="fas fa-home"></i> Dashboard</a></li>
+            <li><a href="/mood-tracker" class="active"><i class="fas fa-chart-line"></i> Mood Tracker</a></li>
+            <li><a href="/resources"><i class="fas fa-book-open"></i> Resources</a></li>
+            <li><a href="/journal"><i class="fas fa-book"></i> Journal</a></li>
+            <li><a href="/selfcare"><i class="fas fa-heart"></i> Self Care</a></li>
+            <li><a href="/meditation"><i class="fas fa-brain"></i> Meditation</a></li>
+            <li><a href="/aboutus" ><i class="fas fa-home"></i> About Us</a></li>
+
+            <li><a href="/logout"><i class="fas fa-sign-out-alt"></i> Logout</a></li>
+       </ul>
+    </nav>
+    
+
+    <!-- 🟢 Main Container with Flex Layout -->
+    <div class="mood-container">
+
+        <!-- Left Section: Mood Form + Mood History -->
+        <div class="mood-left">
+            <!-- Log Mood Card -->
+            <div class="card">
+                <h3>Log Your Mood</h3>
+                <form action="/mood-tracker" method="POST">
+                    <label>Select Your Mood:</label>
+                    <select name="mood" required>
+                        <option value="Happy">😊 Happy</option>
+                        <option value="Sad">😢 Sad</option>
+                        <option value="Anxious">😟 Anxious</option>
+                        <option value="Excited">🤩 Excited</option>
+                        <option value="Stressed">😫 Stressed</option>
+                        <option value="Neutral">😐 Neutral</option>
+                    </select>
+
+                    <label>Notes (Optional):</label>
+                    <textarea name="note" placeholder="Describe how you feel..."></textarea>
+
+                    <button type="submit">Save Mood</button>
+                </form>
+            </div>
+
+            <!-- Mood History Card -->
+            <div class="card">
+                <h3>Your Mood History</h3>
+                <ul>
+                    <% moods.forEach(mood => { %>
+                        <li>
+                            <strong><%= mood.date ? new Date(mood.date).toDateString() : "Unknown Date" %></strong>:
+                            <%= mood.mood %> - <%= mood.note || 'No notes' %>
+                        </li>
+                    <% }); %>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Right Section: Mood Graph -->
+        <div class="mood-right">
+            <div class="card">
+                <h3>Your Mood Trend</h3>
+                <canvas id="moodChart"></canvas>
+            </div>
+        </div>
+        
+    </div>
+
+    <script>
+        function toggleMenu() {
+                const navLinks = document.querySelector(".nav-links");
+                navLinks.classList.toggle("show");
+            }
+        
+        document.addEventListener("DOMContentLoaded", function () {
+            const moodData = <%- JSON.stringify(moods || []) %>.reverse();
+    
+            if (moodData.length > 0) {
+                const labels = moodData.map(entry => entry.date ? new Date(entry.date).toLocaleDateString() : "Unknown Date");
+                const moodValues = moodData.map(entry => {
+                    switch(entry.mood) {
+                        case "Happy": return 5;
+                        case "Excited": return 4;
+                        case "Neutral": return 3;
+                        case "Anxious": return 2;
+                        case "Sad": return 1;
+                        case "Stressed": return 0;
+                        default: return 3;
+                    }
+                });
+    
+                const ctx = document.getElementById('moodChart').getContext('2d');
+                new Chart(ctx, {
+                    type: 'line',
+                    data: {
+                        labels: labels,
+                        datasets: [{
+                            label: 'Mood Over Time',
+                            data: moodValues,
+                            borderColor: '#ff4081',
+                            backgroundColor: moodValues.map(value => ["#F44336", "#2196F3", "#FF9800", "#9E9E9E", "#FFEB3B", "#4CAF50"][value]),
+                            fill: false,
+                            tension: 0.3
+                        }]
+                    },
+                    options: {
+                        responsive: true,
+                        scales: {
+                            y: {
+                                beginAtZero: true,
+                                max: 5,
+                                ticks: {
+                                    stepSize: 1,
+                                    callback: function(value) {
+                                        const moodMap = ["Stressed", "Sad", "Anxious", "Neutral", "Excited", "Happy"];
+                                        return moodMap[value];
+                                    }
+                                }
+                            }
+                        }
+                    }
+                });
+            } else {
+                document.getElementById('moodChart').style.display = "none";
+            }
+        });
+    </script>
+    
+</body>
+</html>

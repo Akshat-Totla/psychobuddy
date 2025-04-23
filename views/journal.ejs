@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Journal | Psychobuddy</title>
+    <link rel="stylesheet" href="/css/journal.css">
+</head>
+<body>
+    <nav class="navbar">
+        <h2> <img src="/image/logo.webp" alt="Psychobuddy Logo">Psychobuddy</h2>
+        <div class="menu-toggle" onclick="toggleMenu()">☰</div>
+        <ul class="nav-links">
+            <li><a href="/dashboard" ><i class="fas fa-home"></i> Dashboard</a></li>
+            <li><a href="/mood-tracker"><i class="fas fa-chart-line"></i> Mood Tracker</a></li>
+            <li><a href="/resources"><i class="fas fa-book-open"></i> Resources</a></li>
+            <li><a href="/journal" class="active"><i class="fas fa-book"></i> Journal</a></li>
+            <li><a href="/selfcare"><i class="fas fa-heart"></i> Self Care</a></li>
+            <li><a href="/meditation"><i class="fas fa-brain"></i> Meditation</a></li>
+            <li><a href="/aboutus" ><i class="fas fa-home"></i> About Us</a></li>
+            <li><a href="/logout"><i class="fas fa-sign-out-alt"></i> Logout</a></li>
+        </ul>
+    </nav>
+
+
+    <div class="main-content">
+    <div class="container">
+        <h1>Your Journal</h1>
+        <form action="/journal" method="POST">
+            <input type="text" name="title" placeholder="Title" required>
+            <textarea name="content" placeholder="Write your thoughts..." required></textarea>
+            <select name="mood">
+                <option value="Happy">😊 Happy</option>
+                <option value="Sad">😢 Sad</option>
+                <option value="Excited">🤩 Excited</option>
+                <option value="Anxious">😟 Anxious</option>
+                <option value="Neutral">😐 Neutral</option>
+            </select>
+            <button type="submit">Save Entry</button>
+        </form>
+
+        <h2>Previous Entries</h2><!-- Hidden Edit Form -->
+      <!-- Search & Filter -->
+<div class="search-container">
+    <button class="search-btn" onclick="toggleSearch()">
+        🔍
+    </button>
+    <div class="search-box">
+        <input type="text" id="search" placeholder="Search entries..." onkeyup="filterEntries()">
+        <select id="mood-filter" onchange="filterEntries()">
+            <option value="">All Moods</option>
+            <option value="Happy">😊 Happy</option>
+            <option value="Sad">😢 Sad</option>
+            <option value="Excited">🤩 Excited</option>
+            <option value="Anxious">😟 Anxious</option>
+            <option value="Neutral">😐 Neutral</option>
+        </select>
+    </div>
+</div>
+
+
+        <div id="edit-form" class="edit-form">
+            <h2>Edit Journal Entry</h2>
+            <form id="editJournalForm" method="POST">
+                <input type="text" id="edit-title" name="title" required>
+                <textarea id="edit-content" name="content" required></textarea>
+                <select id="edit-mood" name="mood">
+                    <option value="Happy">😊 Happy</option>
+                    <option value="Sad">😢 Sad</option>
+                    <option value="Excited">🤩 Excited</option>
+                    <option value="Anxious">😟 Anxious</option>
+                    <option value="Neutral">😐 Neutral</option>
+                </select>
+                <button type="submit">Update Entry</button>
+                <button type="button" onclick="closeEditForm()">Cancel</button>
+            </form>
+        </div>
+        
+
+        <div class="entries">
+            <% entries.forEach(entry => { %>
+                <div class="entry">
+                    <h3><%= entry.title %> (<%= entry.mood %>)</h3>
+                    <p><%= entry.content %></p>
+                    <small>🕒 <%= entry.createdAt.toDateString() %></small>
+                    
+                    <!-- Edit & Delete Buttons -->
+                    <div class="buttons">
+                        <button class="edit-btn" onclick="openEditForm('<%= entry._id %>')">✏️ Edit</button>
+                        <form action="/journal/delete/<%= entry._id %>" method="POST">
+                            <button type="submit">🗑️ Delete</button>
+                        </form>
+                    </div>
+                </div>
+            <% }); %>
+            
+        </div>
+        
+    </div>
+</div>
+    <script>
+        function toggleMenu() {
+    const navLinks = document.querySelector(".nav-links");
+    navLinks.classList.toggle("show");
+}
+
+
+    function toggleSearch() {
+        document.querySelector(".search-box").classList.toggle("show");
+    }
+
+
+
+function filterEntries() {
+        let searchValue = document.getElementById("search").value.toLowerCase();
+        let moodFilter = document.getElementById("mood-filter").value;
+
+        document.querySelectorAll(".entry").forEach(entry => {
+            let title = entry.querySelector("h3").innerText.toLowerCase();
+            let mood = entry.querySelector("h3").innerText.match(/\(([^)]+)\)/)[1]; // Extract mood
+
+            if (
+                (title.includes(searchValue) || searchValue === "") &&
+                (mood === moodFilter || moodFilter === "")
+            ) {
+                entry.style.display = "block";
+            } else {
+                entry.style.display = "none";
+            }
+        });
+    }
+
+function openEditForm(entryId) {
+        fetch(`/journal/edit/${entryId}`)
+            .then(response => response.json())
+            .then(data => {
+                document.getElementById("edit-title").value = data.title;
+                document.getElementById("edit-content").value = data.content;
+                document.getElementById("edit-mood").value = data.mood;
+
+                document.getElementById("editJournalForm").action = `/journal/edit/${entryId}`;
+                document.getElementById("edit-form").style.display = "block";
+            })
+            .catch(error => console.error("Error loading entry:", error));
+    }
+
+
+    function closeEditForm() {
+        document.getElementById("edit-form").style.display = "none";
+    }
+    </script>
+</body>
+</html>
