@@ -20,13 +20,19 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.use(express.static(path.join(__dirname, 'public')));
 app.set('view engine', 'ejs');
+const MongoStore = require('connect-mongo');
 
-// ✅ Session Setup
+// ✅ Session Setup with connect-mongo
 app.use(session({
-    secret: 'your_secret_key',
+    secret: 'your_secret_key', // replace with something secure in production
     resave: false,
-    saveUninitialized: false
+    saveUninitialized: false,
+    store: MongoStore.create({
+        mongoUrl: process.env.MONGO_URI,
+        ttl: 14 * 24 * 60 * 60 // Optional: 14 days session expiry
+    })
 }));
+
 
 // ✅ MongoDB Connection
 mongoose.connect(process.env.MONGO_URI, {
