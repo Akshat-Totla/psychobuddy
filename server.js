@@ -24,7 +24,7 @@ const MongoStore = require('connect-mongo');
 
 // ✅ Session Setup with connect-mongo
 app.use(session({
-    secret: 'your_secret_key', // replace with something secure in production
+    secret: process.env.SESSION_SECRET, // replace with something secure in production
     resave: false,
     saveUninitialized: false,
     store: MongoStore.create({
