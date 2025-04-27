@@ -1,17 +1,13 @@
-
-
 // === server.js ===
 require('dotenv').config();
 
 const express = require('express');
 const session = require('express-session');
-const bcrypt = require('bcrypt');
-const bcryptjs = require('bcryptjs');
 const path = require('path');
-const connectDB = require('./config/database'); // Use centralized connection
 const mongoose = require('mongoose');
-
+const connectDB = require('./config/database'); // Connect Mongo
 const MongoStore = require('connect-mongo');
+const authRoutes = require('./routes/auth'); // ✅ NEW: auth routes
 
 const User = require('./models/User');
 const QuizResult = require('./models/QuizResult');
@@ -40,110 +36,69 @@ app.use(session({
   resave: false,
   saveUninitialized: false,
   store: MongoStore.create({
-    mongoUrl: process.env.MONGO_URI, // MongoDB URL
-    collectionName: 'sessions',  // Specify the collection where sessions will be stored
+    mongoUrl: process.env.MONGO_URI,
+    collectionName: 'sessions',
   }),
-  cookie: { secure: false }  // Set to true if using HTTPS
+  cookie: { secure: false } // Set true if HTTPS
 }));
 
+// ✅ Use Auth Routes
+app.use('/', authRoutes);
 
 // ✅ Routes Start
-
 app.get('/', (req, res) => res.render('index'));
-
-// Register
-app.get('/register', (req, res) => res.render('register'));
-app.post('/register', async (req, res) => {
-    const { name, email, password } = req.body;
-    const existingUser = await User.findOne({ email });
-
-    if (existingUser) return res.send("Email already registered. Please login.");
-
-    const hashedPassword = await bcryptjs.hash(password, 10);
-    const newUser = new User({ name, email, password: hashedPassword, hasCompletedQuiz: false });
-
-    await newUser.save();
-    req.session.userId = newUser._id;
-
-    return res.redirect('/quiz');
-});
-
-// Login
-app.get('/login', (req, res) => res.render('login'));
-
-app.post('/login', async (req, res) => {
-  const { email, password } = req.body;
-
-  // Find user by email
-  const user = await User.findOne({ email });
-  if (!user) {
-    return res.status(400).send('Invalid email or password');
-  }
-
-  // Compare password with hash
-  const isMatch = await bcryptjs.compare(password, user.password);
-  if (!isMatch) {
-    return res.status(400).send('Invalid email or password');
-  }
-
-  // Set session or send token (if using JWT)
-  req.session.userId = user._id;
-
-  res.status(200).send('Login successful');
-});
-
-
-// Logout
-app.get('/logout', (req, res) => {
-    req.session.destroy(() => res.redirect('/'));
-});
 
 // Quiz
 app.get('/quiz', async (req, res) => {
-    if (!req.session.userId) return res.redirect('/login');
+  if (!req.session.userId) return res.redirect('/login');
 
-    const user = await User.findById(req.session.userId);
-    if (user.hasCompletedQuiz) return res.redirect('/dashboard');
+  const user = await User.findById(req.session.userId);
+  if (user.hasCompletedQuiz) return res.redirect('/dashboard');
 
-    res.render('quiz');
+  res.render('quiz');
 });
 
 app.post('/submit-quiz', async (req, res) => {
-    if (!req.session.userId) return res.redirect('/login');
+  if (!req.session.userId) return res.redirect('/login');
 
-    try {
-        const { answers } = req.body;
-        if (!answers || !Array.isArray(answers)) {
-            return res.status(400).send("Error: No answers received.");
-        }
-
-        let totalScore = answers.reduce((sum, value) => sum + parseInt(value), 0);
-
-        let diagnosis = totalScore <= 5 ? "No significant issues." :
-                        totalScore <= 10 ? "Mild anxiety/stress." :
-                        totalScore <= 15 ? "Moderate mental health concerns." :
-                        "High risk of anxiety/depression.";
-
-        const quizResult = new QuizResult({ userId: req.session.userId, answers, score: totalScore, diagnosis });
-        await quizResult.save();
-
-        return res.redirect('/dashboard');
-    } catch (error) {
-        console.error("❌ Quiz Submission Error:", error);
-        return res.status(500).send("Internal Server Error");
+  try {
+    const { answers } = req.body;
+    if (!answers || !Array.isArray(answers)) {
+      return res.status(400).send("Error: No answers received.");
     }
+
+    let totalScore = answers.reduce((sum, value) => sum + parseInt(value), 0);
+
+    let diagnosis = totalScore <= 5 ? "No significant issues." :
+                    totalScore <= 10 ? "Mild anxiety/stress." :
+                    totalScore <= 15 ? "Moderate mental health concerns." :
+                    "High risk of anxiety/depression.";
+
+    const quizResult = new QuizResult({ userId: req.session.userId, answers, score: totalScore, diagnosis });
+    await quizResult.save();
+
+    // Mark user as completed quiz
+    await User.findByIdAndUpdate(req.session.userId, { hasCompletedQuiz: true });
+
+    return res.redirect('/dashboard');
+  } catch (error) {
+    console.error("❌ Quiz Submission Error:", error);
+    return res.status(500).send("Internal Server Error");
+  }
 });
 
 // Dashboard
 app.get('/dashboard', async (req, res) => {
-    if (!req.session.userId) return res.redirect('/login');
+  if (!req.session.userId) return res.redirect('/login');
 
-    const user = await User.findById(req.session.userId);
-    const quizResult = await QuizResult.findOne({ userId: req.session.userId }).sort({ createdAt: -1 }).lean() || null;
-    const latestMood = await Mood.findOne({ userId: req.session.userId }).sort({ date: -1 }).lean() || null;
+  const user = await User.findById(req.session.userId);
+  const quizResult = await QuizResult.findOne({ userId: req.session.userId }).sort({ createdAt: -1 }).lean() || null;
+  const latestMood = await Mood.findOne({ userId: req.session.userId }).sort({ date: -1 }).lean() || null;
 
-    res.render('dashboard', { user, quizResult, latestMood });
+  res.render('dashboard', { user, quizResult, latestMood });
 });
+
+
 
 // Mood Tracker
 app.get('/mood-tracker', async (req, res) => {
