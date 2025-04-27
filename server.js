@@ -59,7 +59,7 @@ app.post('/register', async (req, res) => {
 
     if (existingUser) return res.send("Email already registered. Please login.");
 
-    const hashedPassword = await bcrypt.hash(password, 10);
+    const hashedPassword = await bcryptjs.hash(password, 10);
     const newUser = new User({ name, email, password: hashedPassword, hasCompletedQuiz: false });
 
     await newUser.save();
