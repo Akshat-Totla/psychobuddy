@@ -8,6 +8,8 @@ const session = require('express-session');
 const bcrypt = require('bcrypt');
 const path = require('path');
 const connectDB = require('./config/database'); // Use centralized connection
+const mongoose = require('mongoose');
+
 const MongoStore = require('connect-mongo');
 
 const User = require('./models/User');
