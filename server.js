@@ -6,7 +6,7 @@ require('dotenv').config();
 const express = require('express');
 const session = require('express-session');
 const bcrypt = require('bcrypt');
-const bcrypt = require('bcryptjs');
+const bcryptjs = require('bcryptjs');
 const path = require('path');
 const connectDB = require('./config/database'); // Use centralized connection
 const mongoose = require('mongoose');
