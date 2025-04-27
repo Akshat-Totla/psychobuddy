@@ -6,6 +6,7 @@ require('dotenv').config();
 const express = require('express');
 const session = require('express-session');
 const bcrypt = require('bcrypt');
+const bcrypt = require('bcryptjs');
 const path = require('path');
 const connectDB = require('./config/database'); // Use centralized connection
 const mongoose = require('mongoose');
@@ -80,7 +81,7 @@ app.post('/login', async (req, res) => {
   }
 
   // Compare password with hash
-  const isMatch = await bcrypt.compare(password, user.password);
+  const isMatch = await bcryptjs.compare(password, user.password);
   if (!isMatch) {
     return res.status(400).send('Invalid email or password');
   }
