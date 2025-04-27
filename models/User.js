@@ -1,3 +1,4 @@
+// models/User.js
 const mongoose = require('mongoose');
 const bcrypt = require('bcryptjs');
 
@@ -6,8 +7,8 @@ const UserSchema = new mongoose.Schema({
     email: { type: String, required: true, unique: true },
     password: { type: String, required: true },
     hasCompletedQuiz: { type: Boolean, default: false },
-    streakCount: { type: Number, default: 0 },  // 🔥 New field: Streak counter
-    lastMoodDate: { type: Date }  // 🔥 New field: Last mood log date
+    streakCount: { type: Number, default: 0 },  
+    lastMoodDate: { type: Date }
 });
 
 // Hash password before saving
