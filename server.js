@@ -163,6 +163,101 @@ app.post('/mood-tracker', async (req, res) => {
 // Meditation, Selfcare, Journal, Resources, Food & Diet, Books, Music, About Us pages
 // (Code for these pages remains unchanged)
 
+// ✅ Meditation & Self-Care
+app.get('/meditation', async (req, res) => {
+    if (!req.session.userId) return res.redirect('/login');
+    const moods = await Mood.find({ userId: req.session.userId }).sort({ date: -1 });
+    res.render('meditation', { moods });
+});
+
+app.get('/selfcare', async (req, res) => {
+    if (!req.session.userId) return res.redirect('/login');
+    const moods = await Mood.find({ userId: req.session.userId }).sort({ date: -1 });
+    res.render('selfcare', { moods });
+});
+
+// ✅ Journal
+app.get("/journal", async (req, res) => {
+    if (!req.session.userId) return res.redirect("/login");
+    const entries = await Journal.find({ userId: req.session.userId }).sort({ createdAt: -1 });
+    res.render("journal", { entries });
+});
+
+app.post("/journal", async (req, res) => {
+    if (!req.session.userId) return res.redirect("/login");
+
+    const { title, content, mood } = req.body;
+    const newEntry = new Journal({ userId: req.session.userId, title, content, mood });
+
+    await newEntry.save();
+    res.redirect("/journal");
+});
+
+app.get("/journal/edit/:id", async (req, res) => {
+    if (!req.session.userId) return res.redirect("/login");
+
+    const entry = await Journal.findById(req.params.id);
+    if (!entry || entry.userId.toString() !== req.session.userId) {
+        return res.redirect("/journal");
+    }
+
+    res.json(entry);
+});
+
+app.post("/journal/edit/:id", async (req, res) => {
+    if (!req.session.userId) return res.redirect("/login");
+
+    const { title, content, mood } = req.body;
+    const entry = await Journal.findById(req.params.id);
+
+    if (!entry || entry.userId.toString() !== req.session.userId) {
+        return res.redirect("/journal");
+    }
+
+    entry.title = title;
+    entry.content = content;
+    entry.mood = mood;
+    await entry.save();
+
+    res.redirect("/journal");
+});
+
+app.post("/journal/delete/:id", async (req, res) => {
+    await Journal.findByIdAndDelete(req.params.id);
+    res.redirect("/journal");
+});
+
+// ✅ Extra Pages
+app.get('/resources', async (req, res) => {
+    if (!req.session.userId) return res.redirect('/login');
+    const moods = await Mood.find({ userId: req.session.userId }).sort({ date: -1 });
+    res.render('resources', { moods });
+});
+
+app.get('/food-diet', async (req, res) => {
+    if (!req.session.userId) return res.redirect('/login');
+    const moods = await Mood.find({ userId: req.session.userId }).sort({ date: -1 });
+    res.render('food-diet', { moods });
+});
+
+app.get('/books', async (req, res) => {
+    if (!req.session.userId) return res.redirect('/login');
+    const moods = await Mood.find({ userId: req.session.userId }).sort({ date: -1 });
+    res.render('books', { moods });
+});
+
+app.get('/music', async (req, res) => {
+    if (!req.session.userId) return res.redirect('/login');
+    const moods = await Mood.find({ userId: req.session.userId }).sort({ date: -1 });
+    res.render('music', { moods });
+});
+app.get('/aboutus', async (req, res) => {
+    const moods = await Mood.find({ userId: req.session.userId }).sort({ date: -1 });
+    res.render('aboutus', { moods });
+});
+
+
+
 // ✅ Server Startup
 const PORT = process.env.PORT || 3001;
 app.listen(PORT, () => console.log(`🚀 Server running on http://localhost:${PORT}`));
