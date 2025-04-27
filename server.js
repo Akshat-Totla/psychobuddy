@@ -68,18 +68,25 @@ app.post('/register', async (req, res) => {
 });
 
 // Login
-app.get('/login', (req, res) => res.render('login'));
 app.post('/login', async (req, res) => {
-    const { email, password } = req.body;
-    const user = await User.findOne({ email });
+  const { username, password } = req.body;
 
-    if (!user) return res.send("User not found. Please register.");
+  // Find user by username
+  const user = await User.findOne({ username });
+  if (!user) {
+    return res.status(400).send('Invalid username or password');
+  }
 
-    const isMatch = await bcrypt.compare(password, user.password);
-    if (!isMatch) return res.send("Incorrect password. Try again.");
+  // Compare password with hash
+  const isMatch = await bcrypt.compare(password, user.password);
+  if (!isMatch) {
+    return res.status(400).send('Invalid username or password');
+  }
 
-    req.session.userId = user._id;
-    return res.redirect('/dashboard');
+  // Set session or send token (if using JWT)
+  req.session.userId = user._id;
+
+  res.status(200).send('Login successful');
 });
 
 // Logout
