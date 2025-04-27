@@ -69,19 +69,20 @@ app.post('/register', async (req, res) => {
 
 // Login
 app.get('/login', (req, res) => res.render('login'));
-app.post('/login', async (req, res) => {
-  const { username, password } = req.body;
 
-  // Find user by username
-  const user = await User.findOne({ username });
+app.post('/login', async (req, res) => {
+  const { email, password } = req.body;
+
+  // Find user by email
+  const user = await User.findOne({ email });
   if (!user) {
-    return res.status(400).send('Invalid username or password');
+    return res.status(400).send('Invalid email or password');
   }
 
   // Compare password with hash
   const isMatch = await bcrypt.compare(password, user.password);
   if (!isMatch) {
-    return res.status(400).send('Invalid username or password');
+    return res.status(400).send('Invalid email or password');
   }
 
   // Set session or send token (if using JWT)
@@ -89,6 +90,7 @@ app.post('/login', async (req, res) => {
 
   res.status(200).send('Login successful');
 });
+
 
 // Logout
 app.get('/logout', (req, res) => {
