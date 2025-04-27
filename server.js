@@ -8,6 +8,7 @@ const session = require('express-session');
 const bcrypt = require('bcrypt');
 const path = require('path');
 const connectDB = require('./config/database'); // Use centralized connection
+const MongoStore = require('connect-mongo');
 
 const User = require('./models/User');
 const QuizResult = require('./models/QuizResult');
@@ -26,12 +27,25 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.set('view engine', 'ejs');
 
 // ✅ Session Setup
+mongoose.connect('mongodb://localhost/yourdb', {
+  useNewUrlParser: true,
+  useUnifiedTopology: true,
+});
+
 app.use(session({
-    secret: 'your_secret_key',
-    resave: false,
-    saveUninitialized: false
+  secret: 'your-session-secret',
+  resave: false,
+  saveUninitialized: false,
+  store: MongoStore.create({
+    mongoUrl: 'mongodb://localhost/yourdb', // MongoDB URL
+    collectionName: 'sessions',  // Specify the collection where sessions will be stored
+  }),
+  cookie: { secure: false }  // Set to true if using HTTPS
 }));
 
+app.get('/', (req, res) => {
+  res.send('Hello World!');
+});
 // ✅ Routes Start
 
 app.get('/', (req, res) => res.render('index'));
