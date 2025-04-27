@@ -45,9 +45,7 @@ app.use(session({
   cookie: { secure: false }  // Set to true if using HTTPS
 }));
 
-app.get('/', (req, res) => {
-  res.send('Hello World!');
-});
+
 // ✅ Routes Start
 
 app.get('/', (req, res) => res.render('index'));
