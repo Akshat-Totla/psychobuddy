@@ -27,7 +27,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.set('view engine', 'ejs');
 
 // ✅ Session Setup
-mongoose.connect('mongodb://localhost/yourdb', {
+mongoose.connect(process.env.MONGO_URI, {
   useNewUrlParser: true,
   useUnifiedTopology: true,
 });
@@ -37,7 +37,7 @@ app.use(session({
   resave: false,
   saveUninitialized: false,
   store: MongoStore.create({
-    mongoUrl: 'mongodb://localhost/yourdb', // MongoDB URL
+    mongoUrl: process.env.MONGO_URI, // MongoDB URL
     collectionName: 'sessions',  // Specify the collection where sessions will be stored
   }),
   cookie: { secure: false }  // Set to true if using HTTPS
