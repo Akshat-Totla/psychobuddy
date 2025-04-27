@@ -7,7 +7,7 @@ const express = require('express');
 const session = require('express-session');
 const bcrypt = require('bcrypt');
 const path = require('path');
-const connectDB = require('./database'); // Use centralized connection
+const connectDB = require('./config/database'); // Use centralized connection
 
 const User = require('./models/User');
 const QuizResult = require('./models/QuizResult');
